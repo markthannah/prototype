@@ -1,4 +1,5 @@
-<%= form_with(model: item, local: true) do |form| %>
+  <%= form_for @item, html: {multipart: true} do |form| %>
+
   <% if item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -11,17 +12,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :item_name %>
+  <div class="row">
+    <div class="form-group col-xs-5">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :item_name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :barcode %>
-    <%= form.text_field :barcode, id: :item_barcode %>
+  <div class="row">
+    <div class="form-group col-xs-5">
+      <%= form.label :barcode %>
+      <%= form.text_field :barcode, id: :item_barcode, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+  <div class="form-group">
+    <%= link_to 'Cancel', items_path, class: "btn btn-danger" %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
-<% end %>
+
+  <% end %>
