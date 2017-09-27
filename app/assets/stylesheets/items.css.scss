@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.table_font {
+.table-font {
   font-size: 18px;
 }
 
@@ -13,4 +13,10 @@
 
 .form-field {
   width: 100%
+}
+
+.subtext {
+  color: gray;
+  margin-top: 8px;
+  margin-bottom: -10px;
 }

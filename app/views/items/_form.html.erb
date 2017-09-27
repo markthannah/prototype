@@ -16,44 +16,113 @@
     <div class="col-xs-12">
       <div class="row-fluid">
 
-        <div class="col-xs-6">
-          <i class="fa fa-picture-o" style="font-size:30em;" aria-hidden="true"></i>
+        <div class="col-xs-3">
+          <i class="fa fa-picture-o" style="font-size:15em;" aria-hidden="true"></i>
         </div>
 
-        <div class="col-xs-6">
+        <div class="col-xs-9">
           <div class="row-fluid">
 
             <div class="form-group col-xs-12">
-              <%= form.label :barcode %>
-              <input class="form-control" type="text" placeholder="12CIN123-123" disabled>
-            </div>
+              <p><b>Category</b></p>
+              <div class="well">
+
+              </div>
+             </div>
 
             <div class="form-group col-xs-12">
-              <%= form.label :name %>
-              <%= form.text_field :name, id: :item_name, class: "form-control" %>
-            </div>
+              <p><b>Attributes</b></p>
+              <div class="well">
 
-            <div class="form-group col-xs-12">
-              <%= form.label "Origin" %>
-              <input class="form-control" type="text" placeholder="Distribution Center" readonly>
-            </div>
-
-            <div class="form-group col-xs-12">
-              <%= form.label "DC Pickup?" %>
-              <div>
-                <input type="checkbox" class="custom-control-input" readonly>
-                A buyer can pick up this item at the Distribution Center
               </div>
             </div>
 
             <div class="form-group col-xs-12">
-              <%= form.label "Condition" %>
-              <input class="form-control" type="text" placeholder="Good" readonly>
+              <p><b>Condition</b></p>
+              <div class="well">
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <p>Condition Status | Required</p>
+                    <div>
+                      <button type="button" class="btn btn-default DC-button" disabled>Very Good</button>
+                      <button type="button" class="btn btn-default DC-button" disabled>Good</button>
+                      <button type="button" class="btn btn-default DC-button" disabled>Fair</button>
+                      <button type="button" class="btn btn-default DC-button" disabled>Poor</button>
+                      <button type="button" class="btn btn-default DC-button" disabled>Various</button>
+                      <button type="button" class="btn btn-default DC-button" disabled>Inoperable</button>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group col-xs-12">
+                    <p>Condition Details</p>
+                    <textarea class="form-control" placeholder="-good condition" readonly></textarea>
+                    <p class="subtext">Describe any flaws with the item, like scratches, worn areas, non-functioning components, etc.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="form-group col-xs-12">
-              <%= form.label "Condition Details" %>
-              <textarea class="form-control" placeholder="-good condition" readonly></textarea>
+              <p><b>Measurements</b></p>
+              <div class="well">
+                <div class="row">
+                  <div class="form-group col-xs-4">
+                    <p>Width (in.)<p>
+                    <input class="form-control" type="text" placeholder="12" readonly>
+                  </div>
+                  <div class="form-group col-xs-4">
+                    <p>Height (in.)</p>
+                    <input class="form-control" type="text" placeholder="12" readonly>
+                  </div>
+                  <div class="form-group col-xs-4">
+                    <p>Depth (in.)</p>
+                    <input class="form-control" type="text" placeholder="12" readonly>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <p>Measurement Details</p>
+                    <textarea class="form-control" placeholder="-it's pretty big" readonly></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <button type="button" class="btn btn-default DC-button" disabled>DC Pickup?</button>
+                    <p class="subtext">Describe any flaws with the item, like scratches, worn areas, non-functioning components, etc.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <p><b>Description</b></p>
+              <div class="well">
+                <p>Description | Required</p>
+                <textarea class="form-control" placeholder="This piece of jewelry is..." readonly></textarea>
+              </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <p><b>Additional Links</b></p>
+              <div class="well">
+                <div class="row">
+                  <div class="form-group col-xs-6">
+                    <p>Link Title<p>
+                    <input class="form-control" type="text" placeholder= "EBTH" readonly>
+                  </div>
+                  <div class="form-group col-xs-6">
+                    <p>URL</p>
+                    <input class="form-control" type="text" placeholder="http://ebth.com" readonly>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-default DC-button" disabled>+ Add Another Link</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= link_to 'Cancel', items_path, class: "btn btn-danger" %>
+              <%= form.submit class: "btn btn-primary" %>
             </div>
 
           </div>
@@ -61,11 +130,6 @@
 
       </div>
     </div>
-  </div>
-
-  <div class="form-group">
-    <%= link_to 'Cancel', items_path, class: "btn btn-danger" %>
-    <%= form.submit class: "btn btn-primary" %>
   </div>
 
   <% end %>
