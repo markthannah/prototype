@@ -12,20 +12,56 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="form-group col-xs-5">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :item_name, class: "form-control" %>
+  <div class="row-fluid">
+    <div class="col-xs-12">
+      <div class="row-fluid">
+
+        <div class="col-xs-6">
+          <i class="fa fa-picture-o" style="font-size:30em;" aria-hidden="true"></i>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="row-fluid">
+
+            <div class="form-group col-xs-12">
+              <%= form.label :barcode %>
+              <input class="form-control" type="text" placeholder="12CIN123-123" disabled>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <%= form.label :name %>
+              <%= form.text_field :name, id: :item_name, class: "form-control" %>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <%= form.label "Origin" %>
+              <input class="form-control" type="text" placeholder="Distribution Center" readonly>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <%= form.label "DC Pickup?" %>
+              <div>
+                <input type="checkbox" class="custom-control-input" readonly>
+                A buyer can pick up this item at the Distribution Center
+              </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <%= form.label "Condition" %>
+              <input class="form-control" type="text" placeholder="Good" readonly>
+            </div>
+
+            <div class="form-group col-xs-12">
+              <%= form.label "Condition Details" %>
+              <textarea class="form-control" placeholder="-good condition" readonly></textarea>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="form-group col-xs-5">
-      <%= form.label :barcode %>
-      <%= form.text_field :barcode, id: :item_barcode, class: "form-control" %>
-    </div>
-  </div>
-
 
   <div class="form-group">
     <%= link_to 'Cancel', items_path, class: "btn btn-danger" %>

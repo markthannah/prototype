@@ -1,11 +1,16 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .table_font {
   font-size: 18px;
 }
 
-.item_name {
+.item-name {
   font-weight: 300;
   color: #555;
+}
+
+.form-field {
+  width: 100%
 }
