@@ -9,6 +9,15 @@
 .item-name {
   font-weight: 300;
   color: #555;
+  font-size: 24px;
+  border: 0;
+  box-shadow: none;
+}
+
+.sub-item-name {
+  font-weight: 300;
+  color: #555;
+  padding-left: 12px;
 }
 
 .form-field {
@@ -19,4 +28,15 @@
   color: gray;
   margin-top: 8px;
   margin-bottom: -10px;
+}
+
+.drop-down {
+  width: 50px;
+}
+
+.option1{
+ display: none;
+}
+.option2{
+ display: none;
 }

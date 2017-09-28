@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926190244) do
+ActiveRecord::Schema.define(version: 20170927191014) do
+
+  create_table "item_details", force: :cascade do |t|
+    t.string "metal_type"
+    t.float "ring_size"
+    t.string "hallmarks"
+    t.float "total_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "barcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_details_id"
+    t.string "category"
+    t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 
 end

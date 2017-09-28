@@ -1,1 +1,35 @@
-<h1>About</h1>
+
+    <select id="jewelrytype" name="jewelrytype" class="form-control">
+      <option>Select a Catgory</option>
+      <option value="bracelets">Bracelets</option>
+      <option value="rings">Rings</option>
+    </select>
+
+    <div id="braceletdetails">
+      Bracelet Details
+    </div>
+
+    <div id="ringdetails">
+      Ring Details
+    </div>
+
+<script>
+$(document).ready(function () {
+    toggleFields();
+    $("#jewelrytype").change(function () {
+        toggleFields();
+    });
+
+});
+function toggleFields() {
+    if ($("#jewelrytype").val() === "bracelets")
+        $("#braceletdetails").show();
+    else
+        $("#braceletdetails").hide();
+
+    if ($("#jewelrytype").val() === "rings")
+        $("#ringdetails").show();
+    else
+        $("#ringdetails").hide();
+}
+</script>

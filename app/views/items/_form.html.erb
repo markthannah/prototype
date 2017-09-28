@@ -12,6 +12,10 @@
     </div>
   <% end %>
 
+  <%= form.url_field :name, class: "form-control item-name", placeholder: "Enter Item Name Here" %>
+  <h4 class="sub-item-name"> ITEM # 12CIN123-123 | SALE 12CIN123 Personal Property Sale |  CONTRACT C-059502 </h4>
+  <hr>
+
   <div class="row-fluid">
     <div class="col-xs-12">
       <div class="row-fluid">
@@ -25,15 +29,22 @@
 
             <div class="form-group col-xs-12">
               <p><b>Category</b></p>
-              <div class="well">
 
+              <div class="well">
+                <div class="form-group">
+                  <p>Category | Required</p>
+                  <%= form.select(:category, options_for_select([['Jewelry and Watches > Bracelets'], ['Jewelry and Watches > Brooches'], ['Jewelry and Watches > Cufflinks'], ['Jewelry and Watches > Earrings'], ['Jewelry and Watches > Necklaces'], ['Jewelry and Watches > Other Jewelry'], ['Jewelry and Watches > Pendants'], ['Jewelry and Watches > Pins'], ['Jewelry and Watches > Rings'], ['Jewelry and Watches > Watches']], {:selected => @item.category}),:prompt => "Select One") %>
+                </div>
               </div>
              </div>
 
             <div class="form-group col-xs-12">
               <p><b>Attributes</b></p>
               <div class="well">
-
+                <div class="field <%= item.category == 'Jewelry and Watches > Bracelets' ? 'present' : 'hidden' %>">
+                  <%= form.label :barcode %>
+                  test
+                 </div>
               </div>
             </div>
 
