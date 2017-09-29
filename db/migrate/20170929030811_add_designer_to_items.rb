@@ -9,3 +9,5 @@ class AddDesignerToItems < ActiveRecord::Migration[5.1]
     add_column :items, :length, :float
     add_column :items, :ringsize, :float
     add_column :items, :braceletclosure, :text
+  end
+end
