@@ -1,35 +1,12 @@
 
-    <select id="jewelrytype" name="jewelrytype" class="form-control">
-      <option>Select a Catgory</option>
-      <option value="bracelets">Bracelets</option>
-      <option value="rings">Rings</option>
-    </select>
 
-    <div id="braceletdetails">
-      Bracelet Details
-    </div>
 
-    <div id="ringdetails">
-      Ring Details
-    </div>
 
-<script>
-$(document).ready(function () {
-    toggleFields();
-    $("#jewelrytype").change(function () {
-        toggleFields();
-    });
 
-});
-function toggleFields() {
-    if ($("#jewelrytype").val() === "bracelets")
-        $("#braceletdetails").show();
-    else
-        $("#braceletdetails").hide();
-
-    if ($("#jewelrytype").val() === "rings")
-        $("#ringdetails").show();
-    else
-        $("#ringdetails").hide();
-}
-</script>
+<div class="row">
+     <div class="span4 collapse-group">
+       <h2>Heading</h2>
+        <p class="collapse" id="viewdetails">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+       <p><a class="btn" data-toggle="collapse" data-target="#viewdetails">View details &raquo;</a></p>
+     </div>
+   </div>

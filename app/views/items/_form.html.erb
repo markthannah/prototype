@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <%= form.url_field :name, class: "form-control item-name", placeholder: "Enter Item Name Here" %>
+  <%= form.text_field :name, class: "form-control item-name", placeholder: "Enter Item Name Here" %>
   <h4 class="sub-item-name"> ITEM # 12CIN123-123 | SALE 12CIN123 Personal Property Sale |  CONTRACT C-059502 </h4>
   <hr>
 
@@ -28,28 +28,348 @@
           <div class="row-fluid">
 
             <div class="form-group col-xs-12">
-              <p><b>Category</b></p>
+              <h4>Category</h4>
 
               <div class="well">
                 <div class="form-group">
                   <p>Category | Required</p>
-                  <%= form.select(:category, options_for_select([['Jewelry and Watches > Bracelets'], ['Jewelry and Watches > Brooches'], ['Jewelry and Watches > Cufflinks'], ['Jewelry and Watches > Earrings'], ['Jewelry and Watches > Necklaces'], ['Jewelry and Watches > Other Jewelry'], ['Jewelry and Watches > Pendants'], ['Jewelry and Watches > Pins'], ['Jewelry and Watches > Rings'], ['Jewelry and Watches > Watches']], {:selected => @item.category}),:prompt => "Select One") %>
+                  <select id="jewelrytype" name="jewelrytype" class="form-control">
+                    <option>Select a Catgory</option>
+                    <option value="bracelets">Jewelry and Watches > Bracelets</option>
+                    <option value="brooches">Jewelry and Watches > Brooches</option>
+                    <option value="cufflinks">Jewelry and Watches > Cufflinks</option>
+                    <option value="earrings">Jewelry and Watches > Earrings</option>
+                    <option value="necklaces">Jewelry and Watches > Necklaces</option>
+                    <option value="other">Jewelry and Watches > Other Jewelry</option>
+                    <option value="pendants">Jewelry and Watches > Pendants</option>
+                    <option value="pins">Jewelry and Watches > Pins</option>
+                    <option value="rings">Jewelry and Watches > Rings</option>
+                    <option value="watches">Jewelry and Watches > Watches</option>
+                  </select>
                 </div>
               </div>
              </div>
 
             <div class="form-group col-xs-12">
-              <p><b>Attributes</b></p>
-              <div class="well">
-                <div class="field <%= item.category == 'Jewelry and Watches > Bracelets' ? 'present' : 'hidden' %>">
-                  <%= form.label :barcode %>
-                  test
-                 </div>
+              <h4>Attributes</h4>
+                <div class="well" ng-class="{disabled: !status}">
+
+                  <div id="braceletdetails">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Bracelet Details | Required</div>
+                      <div class="panel-body">
+                        <div class="form-group">
+                          <%= form.label :designer, "Designer" %><br>
+                          <%= form.text_field :designer, class: "form-control", placeholder: "Optional Attribute" %>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 form-group">
+                            <%= form.label :othermetal, "Metal Type" %>
+                            <%= form.select :othermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.othermetal), {}, {:class => "form-control"} %>
+                          </div>
+                          <div class="col-xs-6 form-group">
+                            <div class="secondary-dropdown">
+                            <%= form.select :metaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.metaltype), {}, {:class => "form-control"} %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 form-group ">
+                            <%= form.label :length, "Length (inches)" %>
+                            <%= form.number_field :length,in: 1.0..20.0, step: 0.25, class: "form-control", placeholder: "Select a Length (inches)" %>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <%= form.label :braceletclosure, "Bracelet Closure Type" %>
+                          <%= form.select :braceletclosure, options_for_select([["Select One...", ""],'Spring Ring', 'Lobster', 'Barrel', 'Magnetic', 'Fishhook', 'Toggle', 'Slide Lock', 'None'], :selected => @item.braceletclosure), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="form-group form-font">
+                          <%= form.label :hallmarks, "Hallmarks" %><br>
+                          <%= form.text_field :hallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                        </div>
+                        <div class="form-group">
+                          <%= form.label :era %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
+                          <%= form.select :era, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.era), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 form-group ">
+                            <%= form.label :totalweight, "Total Weight" %>
+                            <%= form.number_field :totalweight,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Total Weight" %>
+                          </div>
+                          <div class="col-xs-6 form-group">
+                            <div class="secondary-dropdown">
+                            <%= form.select :weighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.weighttype), {}, {:class => "form-control"} %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-xs-6 collapse-group">
+                        <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails1">Add Center Stones <span class="fa fa-diamond"> </span></a>
+                        <p class="collapse" id="viewdetails1">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                     </div>
+                     <div class="col-xs-6 collapse-group">
+                        <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails2">Add Side Stones <span class="fa fa-diamond"> </span></a>
+                        <p class="collapse" id="viewdetails2">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                     </div>
+                   </div>
+                  </div>
+
+                  <div id="broochdetails">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Brooch Details | Required</div>
+                      <div class="panel-body">
+                        <div class="form-group">
+                          <%= form.label :designer, "Designer" %><br>
+                          <%= form.text_field :designer, class: "form-control", placeholder: "Optional Attribute" %>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 form-group">
+                            <%= form.label :othermetal, "Metal Type" %>
+                            <%= form.select :othermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.othermetal), {}, {:class => "form-control"} %>
+                          </div>
+                          <div class="col-xs-6 form-group">
+                            <div class="secondary-dropdown">
+                            <%= form.select :metaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.metaltype), {}, {:class => "form-control"} %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <%= form.label :broochclosure, "Brooch Closure Type" %>
+                          <%= form.select :broochclosure, options_for_select([["Select One...", ""],'C Clasp', 'Safety Clasp', 'Trobone Clasp', 'None'], :selected => @item.broochclosure), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="form-group form-font">
+                          <%= form.label :hallmarks, "Hallmarks" %><br>
+                          <%= form.text_field :hallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                        </div>
+                        <div class="form-group">
+                          <%= form.label :era %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
+                          <%= form.select :era, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.era), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 form-group ">
+                            <%= form.label :totalweight, "Total Weight" %>
+                            <%= form.number_field :totalweight,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Total Weight" %>
+                          </div>
+                          <div class="col-xs-6 form-group">
+                            <div class="secondary-dropdown">
+                            <%= form.select :weighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.weighttype), {}, {:class => "form-control"} %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div id="cufflinkdetails">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Cufflink Details | Required</div>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :othermetal, "Metal Type" %>
+                          <%= form.select :othermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.othermetal), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :metaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.metaltype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group form-font">
+                        <%= form.label :hallmarks, "Hallmarks" %><br>
+                        <%= form.text_field :hallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :era %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
+                        <%= form.select :era, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.era), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group ">
+                          <%= form.label :totalweight, "Total Weight" %>
+                          <%= form.number_field :totalweight,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Total Weight" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :weighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.weighttype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="earringdetails">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Earring Details | Required</div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <%= form.label :designer, "Designer" %><br>
+                        <%= form.text_field :designer, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :othermetal, "Metal Type" %>
+                          <%= form.select :othermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.othermetal), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :metaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.metaltype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :earringclosure, "Earring Closure Type" %>
+                        <%= form.select :earringclosure, options_for_select([["Select One...", ""],'Fish Hook', 'Hoop', 'Kidney', 'Lever Backed', 'Post'], :selected => @item.earringclosure), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="form-group form-font">
+                        <%= form.label :hallmarks, "Hallmarks" %><br>
+                        <%= form.text_field :hallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :era %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
+                        <%= form.select :era, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.era), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group ">
+                          <%= form.label :totalweight, "Total Weight" %>
+                          <%= form.number_field :totalweight,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Total Weight" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :weighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.weighttype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="necklacedetails">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Necklace Details | Required</div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <%= form.label :designer, "Designer" %><br>
+                        <%= form.text_field :designer, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :othermetal, "Metal Type" %>
+                          <%= form.select :othermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.othermetal), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :metaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.metaltype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group ">
+                          <%= form.label :length, "Length (inches)" %>
+                          <%= form.number_field :length,in: 1.0..20.0, step: 0.25, class: "form-control", placeholder: "Select a Length (inches)" %>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :necklaceclosure, "Necklace Closure Type" %>
+                        <%= form.select :necklaceclosure, options_for_select([["Select One...", ""],'Barrel', 'Snap and Button', 'Crimpting', 'Button', 'Screw', 'Slide and Lock', 'Fish Hook', 'Spring Ring', 'Lobster Claw', 'Box', 'S Hook', 'Magnetic', 'Toggle'], :selected => @item.necklaceclosure), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="form-group form-font">
+                        <%= form.label :hallmarks, "Hallmarks" %><br>
+                        <%= form.text_field :hallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :era %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
+                        <%= form.select :era, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.era), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group ">
+                          <%= form.label :totalweight, "Total Weight" %>
+                          <%= form.number_field :totalweight,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Total Weight" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :weighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.weighttype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="otherdetails">
+                </div>
+
+                <div id="pendantdetails">
+                </div>
+
+                <div id="pindetails">
+                </div>
+
+                <div id="ringdetails">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Ring Details | Required</div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <%= form.label :designer, "Designer" %><br>
+                        <%= form.text_field :designer, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringsize, "Ring Size" %>
+                          <%= form.number_field :ringsize,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Ring Size" %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :othermetal, "Metal Type" %>
+                          <%= form.select :othermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.othermetal), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :metaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.metaltype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group form-font">
+                        <%= form.label :hallmarks, "Hallmarks" %><br>
+                        <%= form.text_field :hallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                      </div>
+                      <div class="form-group">
+                        <%= form.label :era %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
+                        <%= form.select :era, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.era), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group ">
+                          <%= form.label :totalweight, "Total Weight" %>
+                          <%= form.number_field :totalweight,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Total Weight" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                          <%= form.select :weighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.weighttype), {}, {:class => "form-control"} %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="watchdetails">
+                  Watches Details
+                </div>
+
               </div>
             </div>
 
             <div class="form-group col-xs-12">
-              <p><b>Condition</b></p>
+              <h4>Condition</h4>
               <div class="well">
                 <div class="row">
                   <div class="form-group col-xs-12">
@@ -75,7 +395,7 @@
             </div>
 
             <div class="form-group col-xs-12">
-              <p><b>Measurements</b></p>
+              <h4>Measurements</h4>
               <div class="well">
                 <div class="row">
                   <div class="form-group col-xs-4">
@@ -107,7 +427,7 @@
             </div>
 
             <div class="form-group col-xs-12">
-              <p><b>Description</b></p>
+              <h4>Description</h4>
               <div class="well">
                 <p>Description | Required</p>
                 <textarea class="form-control" placeholder="This piece of jewelry is..." readonly></textarea>
@@ -115,7 +435,7 @@
             </div>
 
             <div class="form-group col-xs-12">
-              <p><b>Additional Links</b></p>
+              <h4>Additional Links</h4>
               <div class="well">
                 <div class="row">
                   <div class="form-group col-xs-6">
@@ -144,3 +464,70 @@
   </div>
 
   <% end %>
+
+  <script>
+  $(document).ready(function () {
+      toggleFields();
+      $("#jewelrytype").change(function () {
+          toggleFields();
+      });
+
+  });
+  function toggleFields() {
+
+      if ($("#jewelrytype").val() === "bracelets")
+          $("#braceletdetails").show();
+      else
+          $("#braceletdetails").hide();
+
+      if ($("#jewelrytype").val() === "brooches")
+          $("#broochdetails").show();
+      else
+          $("#broochdetails").hide();
+
+      if ($("#jewelrytype").val() === "cufflinks")
+          $("#cufflinkdetails").show();
+      else
+          $("#cufflinkdetails").hide();
+
+      if ($("#jewelrytype").val() === "earrings")
+          $("#earringdetails").show();
+      else
+          $("#earringdetails").hide();
+
+      if ($("#jewelrytype").val() === "necklaces")
+          $("#necklacedetails").show();
+      else
+          $("#necklacedetails").hide();
+
+      if ($("#jewelrytype").val() === "other")
+          $("#otherdetails").show();
+      else
+          $("#otherdetails").hide();
+
+      if ($("#jewelrytype").val() === "pendants")
+          $("#pendantdetails").show();
+      else
+          $("#pendantdetails").hide();
+
+      if ($("#jewelrytype").val() === "pins")
+          $("#pindetails").show();
+      else
+          $("#pindetails").hide();
+
+      if ($("#jewelrytype").val() === "rings")
+          $("#ringdetails").show();
+      else
+          $("#ringdetails").hide();
+
+      if ($("#jewelrytype").val() === "watches")
+          $("#watchdetails").show();
+      else
+          $("#watchdetails").hide();
+  }
+
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+  </script>

@@ -34,9 +34,18 @@
   width: 50px;
 }
 
-.option1{
- display: none;
+.secondary-dropdown {
+  margin-top:25px;
+  width:150px;
 }
-.option2{
- display: none;
+
+label {
+    font-weight: normal !important;
+}
+
+.disabled {
+    z-index: 1000;
+    background-color: lightgrey;
+    opacity: 0.6;
+    pointer-events: none;
 }
