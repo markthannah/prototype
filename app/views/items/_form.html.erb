@@ -32,20 +32,21 @@
 
               <div class="well">
                 <div class="form-group">
-                  <p>Category | Required</p>
-                  <select id="jewelrytype" name="jewelrytype" class="form-control">
-                    <option>Select a Catgory</option>
-                    <option value="bracelets">Jewelry and Watches > Bracelets</option>
-                    <option value="brooches">Jewelry and Watches > Brooches</option>
-                    <option value="cufflinks">Jewelry and Watches > Cufflinks</option>
-                    <option value="earrings">Jewelry and Watches > Earrings</option>
-                    <option value="necklaces">Jewelry and Watches > Necklaces</option>
-                    <option value="other">Jewelry and Watches > Other Jewelry</option>
-                    <option value="pendants">Jewelry and Watches > Pendants</option>
-                    <option value="pins">Jewelry and Watches > Pins</option>
-                    <option value="rings">Jewelry and Watches > Rings</option>
-                    <option value="watches">Jewelry and Watches > Watches</option>
-                  </select>
+                <p>Category | Required</p>
+                  <%= form.label :category%>
+                  <%= form.select :category, options_for_select([
+                    ['Select One...', ''],
+                    ['Jewelry and Watches > Bracelets','bracelets'],
+                    ['Jewelry and Watches > Brooches','brooches'],
+                    ['Jewelry and Watches > Cufflinks','cufflinks'],
+                    ['Jewelry and Watches > Earrings','earrings'],
+                    ['Jewelry and Watches > Necklaces','necklaces'],
+                    ['Jewelry and Watches > Other Jewelry','otherjewelry'],
+                    ['Jewelry and Watches > Pendants','pendants'],
+                    ['Jewelry and Watches > Pins','pins'],
+                    ['Jewelry and Watches > Rings','rings'],
+                    ['Jewelry and Watches > Watches','watches']
+                    ], @item.category), {}, {:class => "form-control"} %>
                 </div>
               </div>
              </div>
@@ -107,8 +108,30 @@
                     </div>
                     <div class="row">
                      <div class="col-xs-6 collapse-group">
-                        <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails1">Add Center Stones <span class="fa fa-diamond"> </span></a>
-                        <p class="collapse" id="viewdetails1">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails1">Add Center Stones <span class="fa fa-diamond"> </span></a>
+                      <div class="collapse" id="viewdetails1">
+                        <div class="col-xs-12 form-group sub-menu-margin">
+                          <%= form.label :braceletcstonecount, "Stone Count" %>
+                          <%= form.number_field :braceletcstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                          <%= form.label :braceletcstonetype, "Stone Type" %>
+                          <%= form.select :braceletcstonetype, options_for_select([["Select One...", ""],'Amethyst','Alexandrite','Aquamarine','Diamond','Emerald','Onyz','Opal','Peridot', 'Pearl', 'Ruby', 'Sapphire', 'Tanzanite'], :selected => @item.braceletcstonetype), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                          <%= form.label :braceletcstoneshape, "Stone Shape" %>
+                          <%= form.select :braceletcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.braceletcstoneshape), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletcstonedimensionl, "Dimensions" %>
+                          <%= form.number_field :braceletcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Length (mm)" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="secondary-dropdown">
+                            <%= form.number_field :braceletcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Width (mm)" %>
+                          </div>
+                        </div>
+                      </div>
                      </div>
                      <div class="col-xs-6 collapse-group">
                         <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails2">Add Side Stones <span class="fa fa-diamond"> </span></a>
@@ -563,59 +586,59 @@
   <script>
   $(document).ready(function () {
       toggleFields();
-      $("#jewelrytype").change(function () {
+      $("#item_category").change(function () {
           toggleFields();
       });
 
   });
   function toggleFields() {
 
-      if ($("#jewelrytype").val() === "bracelets")
+      if ($("#item_category").val() === "bracelets")
           $("#braceletdetails").show();
       else
           $("#braceletdetails").hide();
 
-      if ($("#jewelrytype").val() === "brooches")
+      if ($("#item_category").val() === "brooches")
           $("#broochdetails").show();
       else
           $("#broochdetails").hide();
 
-      if ($("#jewelrytype").val() === "cufflinks")
+      if ($("#item_category").val() === "cufflinks")
           $("#cufflinkdetails").show();
       else
           $("#cufflinkdetails").hide();
 
-      if ($("#jewelrytype").val() === "earrings")
+      if ($("#item_category").val() === "earrings")
           $("#earringdetails").show();
       else
           $("#earringdetails").hide();
 
-      if ($("#jewelrytype").val() === "necklaces")
+      if ($("#item_category").val() === "necklaces")
           $("#necklacedetails").show();
       else
           $("#necklacedetails").hide();
 
-      if ($("#jewelrytype").val() === "other")
+      if ($("#item_category").val() === "other")
           $("#otherdetails").show();
       else
           $("#otherdetails").hide();
 
-      if ($("#jewelrytype").val() === "pendants")
+      if ($("#item_category").val() === "pendants")
           $("#pendantdetails").show();
       else
           $("#pendantdetails").hide();
 
-      if ($("#jewelrytype").val() === "pins")
+      if ($("#item_category").val() === "pins")
           $("#pindetails").show();
       else
           $("#pindetails").hide();
 
-      if ($("#jewelrytype").val() === "rings")
+      if ($("#item_category").val() === "rings")
           $("#ringdetails").show();
       else
           $("#ringdetails").hide();
 
-      if ($("#jewelrytype").val() === "watches")
+      if ($("#item_category").val() === "watches")
           $("#watchdetails").show();
       else
           $("#watchdetails").hide();
