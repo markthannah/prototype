@@ -1,0 +1,52 @@
+class AddPendantPinRingstonesToItems < ActiveRecord::Migration[5.1]
+  def change
+    add_column :items, :pendantcstonecount, :float
+    add_column :items, :pendantcstonetype, :text
+    add_column :items, :pendantcstoneshape, :text
+    add_column :items, :pendantcstonedimensionw, :float
+    add_column :items, :pendantcstonedimensionl, :float
+    add_column :items, :pendantcstonecolorgrade, :text
+    add_column :items, :pendantcstoneclaritygrade, :text
+    add_column :items, :pendantcstonecaratweight, :float
+    add_column :items, :pendantsstonecount, :float
+    add_column :items, :pendantsstonetype, :text
+    add_column :items, :pendantsstoneshape, :text
+    add_column :items, :pendantsstonedimensionw, :float
+    add_column :items, :pendantsstonedimensionl, :float
+    add_column :items, :pendantsstonecolorgrade, :text
+    add_column :items, :pendantsstoneclaritygrade, :text
+    add_column :items, :pendantsstonecaratweight, :float
+    add_column :items, :pincstonecount, :float
+    add_column :items, :pincstonetype, :text
+    add_column :items, :pincstoneshape, :text
+    add_column :items, :pincstonedimensionw, :float
+    add_column :items, :pincstonedimensionl, :float
+    add_column :items, :pincstonecolorgrade, :text
+    add_column :items, :pincstoneclaritygrade, :text
+    add_column :items, :pincstonecaratweight, :float
+    add_column :items, :pinsstonecount, :float
+    add_column :items, :pinsstonetype, :text
+    add_column :items, :pinsstoneshape, :text
+    add_column :items, :pinsstonedimensionw, :float
+    add_column :items, :pinsstonedimensionl, :float
+    add_column :items, :pinsstonecolorgrade, :text
+    add_column :items, :pinsstoneclaritygrade, :text
+    add_column :items, :pinsstonecaratweight, :float
+    add_column :items, :ringcstonecount, :float
+    add_column :items, :ringcstonetype, :text
+    add_column :items, :ringcstoneshape, :text
+    add_column :items, :ringcstonedimensionw, :float
+    add_column :items, :ringcstonedimensionl, :float
+    add_column :items, :ringcstonecolorgrade, :text
+    add_column :items, :ringcstoneclaritygrade, :text
+    add_column :items, :ringcstonecaratweight, :float
+    add_column :items, :ringsstonecount, :float
+    add_column :items, :ringsstonetype, :text
+    add_column :items, :ringsstoneshape, :text
+    add_column :items, :ringsstonedimensionw, :float
+    add_column :items, :ringsstonedimensionl, :float
+    add_column :items, :ringsstonecolorgrade, :text
+    add_column :items, :ringsstoneclaritygrade, :text
+    add_column :items, :ringsstonecaratweight, :float
+  end
+end
