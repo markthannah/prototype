@@ -1,0 +1,52 @@
+class AddCufflinkEarringNecklacestonesToItems < ActiveRecord::Migration[5.1]
+  def change
+    add_column :items, :cufflinkcstonecount, :float
+    add_column :items, :cufflinkcstonetype, :text
+    add_column :items, :cufflinkcstoneshape, :text
+    add_column :items, :cufflinkcstonedimensionw, :float
+    add_column :items, :cufflinkcstonedimensionl, :float
+    add_column :items, :cufflinkcstonecolorgrade, :text
+    add_column :items, :cufflinkcstoneclaritygrade, :text
+    add_column :items, :cufflinkcstonecaratweight, :float
+    add_column :items, :cufflinksstonecount, :float
+    add_column :items, :cufflinksstonetype, :text
+    add_column :items, :cufflinksstoneshape, :text
+    add_column :items, :cufflinksstonedimensionw, :float
+    add_column :items, :cufflinksstonedimensionl, :float
+    add_column :items, :cufflinksstonecolorgrade, :text
+    add_column :items, :cufflinksstoneclaritygrade, :text
+    add_column :items, :cufflinksstonecaratweight, :float
+    add_column :items, :earringcstonecount, :float
+    add_column :items, :earringcstonetype, :text
+    add_column :items, :earringcstoneshape, :text
+    add_column :items, :earringcstonedimensionw, :float
+    add_column :items, :earringcstonedimensionl, :float
+    add_column :items, :earringcstonecolorgrade, :text
+    add_column :items, :earringcstoneclaritygrade, :text
+    add_column :items, :earringcstonecaratweight, :float
+    add_column :items, :earringsstonecount, :float
+    add_column :items, :earringsstonetype, :text
+    add_column :items, :earringsstoneshape, :text
+    add_column :items, :earringsstonedimensionw, :float
+    add_column :items, :earringsstonedimensionl, :float
+    add_column :items, :earringsstonecolorgrade, :text
+    add_column :items, :earringsstoneclaritygrade, :text
+    add_column :items, :earringsstonecaratweight, :float
+    add_column :items, :necklacecstonecount, :float
+    add_column :items, :necklacecstonetype, :text
+    add_column :items, :necklacecstoneshape, :text
+    add_column :items, :necklacecstonedimensionw, :float
+    add_column :items, :necklacecstonedimensionl, :float
+    add_column :items, :necklacecstonecolorgrade, :text
+    add_column :items, :necklacecstoneclaritygrade, :text
+    add_column :items, :necklacecstonecaratweight, :float
+    add_column :items, :necklacesstonecount, :float
+    add_column :items, :necklacesstonetype, :text
+    add_column :items, :necklacesstoneshape, :text
+    add_column :items, :necklacesstonedimensionw, :float
+    add_column :items, :necklacesstonedimensionl, :float
+    add_column :items, :necklacesstonecolorgrade, :text
+    add_column :items, :necklacesstoneclaritygrade, :text
+    add_column :items, :necklacesstonecaratweight, :float
+  end
+end

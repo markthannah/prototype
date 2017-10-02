@@ -88,7 +88,7 @@
                           <%= form.text_field :bracelethallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="form-group">
-                          <%= form.label :era %>
+                          <%= form.label :era, "Style" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                           <%= form.select :braceletstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.braceletstyle), {}, {:class => "form-control"} %>
                         </div>
@@ -111,7 +111,7 @@
                       <div class="collapse" id="viewdetails1">
                         <div class="col-xs-12 form-group sub-menu-margin">
                           <%= form.label :braceletcstonetype, "Stone Type" %>
-                          <%= form.select :braceletcstonetype, options_for_select([["Select One...", ""],'Amethyst','Alexandrite','Aquamarine','Diamond','Emerald','Onyz','Opal','Peridot', 'Pearl', 'Ruby', 'Sapphire', 'Tanzanite'], :selected => @item.braceletcstonetype), {}, {:class => "form-control"} %>
+                          <%= form.select :braceletcstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl','Rhinestones', 'Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.braceletcstonetype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-12 form-group">
                           <%= form.label :braceletcstoneshape, "Stone Shape" %>
@@ -149,7 +149,7 @@
                       <div class="collapse" id="viewdetails2">
                         <div class="col-xs-12 form-group sub-menu-margin">
                           <%= form.label :braceletsstonetype, "Stone Type" %>
-                          <%= form.select :braceletsstonetype, options_for_select([["Select One...", ""],'Amethyst','Alexandrite','Aquamarine','Diamond','Emerald','Onyz','Opal','Peridot', 'Pearl', 'Ruby', 'Sapphire', 'Tanzanite'], :selected => @item.braceletsstonetype), {}, {:class => "form-control"} %>
+                          <%= form.select :braceletsstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.braceletsstonetype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-12 form-group">
                           <%= form.label :braceletsstoneshape, "Stone Shape" %>
@@ -213,7 +213,7 @@
                           <%= form.text_field :broochhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="form-group">
-                          <%= form.label :era %>
+                          <%= form.label :era, "Style" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                           <%= form.select :broochstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.broochstyle), {}, {:class => "form-control"} %>
                         </div>
@@ -230,6 +230,84 @@
                         </div>
                       </div>
                     </div>
+                    <div class="row">
+                     <div class="col-xs-6 collapse-group panel small-panel">
+                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails3">Center Stone Attributes <span class="fa fa-diamond"> </span></a>
+                      <div class="collapse" id="viewdetails3">
+                        <div class="col-xs-12 form-group sub-menu-margin">
+                          <%= form.label :broochcstonetype, "Stone Type" %>
+                          <%= form.select :broochcstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl','Rhinestones', 'Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.broochcstonetype), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                          <%= form.label :broochcstoneshape, "Stone Shape" %>
+                          <%= form.select :broochcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.broochcstoneshape), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochcstonecount, "Stone Count" %>
+                          <%= form.number_field :broochcstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochcstonecaratweight, "Carat Weight" %>
+                          <%= form.number_field :broochcstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochcstoneclaritygrade, "Clarity Grade" %>
+                          <%= form.select :broochcstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.broochcstoneclaritygrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochcstonecolorgrade, "Color Grade" %>
+                        <%= form.select :broochcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.broochcstonecolorgrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochcstonedimensionl, "Dimensions" %>
+                          <%= form.number_field :broochcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="no-label-field">
+                            <%= form.number_field :broochcstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                     <div class="col-xs-6 collapse-group panel small-panel">
+                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails4">Side Stone Attributes <span class="fa fa-diamond"> </span></a>
+                      <div class="collapse" id="viewdetails4">
+                        <div class="col-xs-12 form-group sub-menu-margin">
+                          <%= form.label :broochsstonetype, "Stone Type" %>
+                          <%= form.select :broochsstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.broochsstonetype), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                          <%= form.label :broochsstoneshape, "Stone Shape" %>
+                          <%= form.select :broochsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.broochsstoneshape), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochsstonecount, "Stone Count" %>
+                          <%= form.number_field :broochsstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochsstonecaratweight, "Carat Weight" %>
+                          <%= form.number_field :broochsstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochsstoneclaritygrade, "Clarity Grade" %>
+                          <%= form.select :broochsstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.broochsstoneclaritygrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochsstonecolorgrade, "Color Grade" %>
+                        <%= form.select :broochsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.broochsstonecolorgrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :broochsstonedimensionl, "Dimensions" %>
+                          <%= form.number_field :broochsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <div class="no-label-field">
+                            <%= form.number_field :broochsstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                   </div>
                   </div>
 <!---CUFFILINKS--------------------------------------------------------------------------------------->
                 <div id="cufflinkdetails">
@@ -252,7 +330,7 @@
                         <%= form.text_field :cufflinkhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :cufflinkstyle %>
+                        <%= form.label :cufflinkstyle, "Style" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :cufflinkstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.cufflinkstyle), {}, {:class => "form-control"} %>
                       </div>
@@ -269,6 +347,84 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                   <div class="col-xs-6 collapse-group panel small-panel">
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails5">Center Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <div class="collapse" id="viewdetails5">
+                      <div class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :cufflinkcstonetype, "Stone Type" %>
+                        <%= form.select :cufflinkcstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl','Rhinestones', 'Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.cufflinkcstonetype), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :cufflinkcstoneshape, "Stone Shape" %>
+                        <%= form.select :cufflinkcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.cufflinkcstoneshape), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinkcstonecount, "Stone Count" %>
+                        <%= form.number_field :cufflinkcstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinkcstonecaratweight, "Carat Weight" %>
+                        <%= form.number_field :cufflinkcstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinkcstoneclaritygrade, "Clarity Grade" %>
+                        <%= form.select :cufflinkcstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.cufflinkcstoneclaritygrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinkcstonecolorgrade, "Color Grade" %>
+                      <%= form.select :cufflinkcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.cufflinkcstonecolorgrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinkcstonedimensionl, "Dimensions" %>
+                        <%= form.number_field :cufflinkcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <div class="no-label-field">
+                          <%= form.number_field :cufflinkcstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                   <div class="col-xs-6 collapse-group panel small-panel">
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails6">Side Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <div class="collapse" id="viewdetails6">
+                      <div class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :cufflinksstonetype, "Stone Type" %>
+                        <%= form.select :cufflinksstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.cufflinksstonetype), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :cufflinksstoneshape, "Stone Shape" %>
+                        <%= form.select :cufflinksstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.cufflinksstoneshape), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinksstonecount, "Stone Count" %>
+                        <%= form.number_field :cufflinksstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinksstonecaratweight, "Carat Weight" %>
+                        <%= form.number_field :cufflinksstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinksstoneclaritygrade, "Clarity Grade" %>
+                        <%= form.select :cufflinksstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.cufflinksstoneclaritygrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinksstonecolorgrade, "Color Grade" %>
+                      <%= form.select :cufflinksstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.cufflinksstonecolorgrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :cufflinksstonedimensionl, "Dimensions" %>
+                        <%= form.number_field :cufflinksstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <div class="no-label-field">
+                          <%= form.number_field :cufflinksstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                 </div>
                 </div>
 <!---EARRINGS--------------------------------------------------------------------------------------->
                 <div id="earringdetails">
@@ -299,7 +455,7 @@
                         <%= form.text_field :earringhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :earringstyle %>
+                        <%= form.label :earringstyle, "Style" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :earringstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.earringstyle), {}, {:class => "form-control"} %>
                       </div>
@@ -316,6 +472,84 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                   <div class="col-xs-6 collapse-group panel small-panel">
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails7">Center Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <div class="collapse" id="viewdetails7">
+                      <div class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :earringcstonetype, "Stone Type" %>
+                        <%= form.select :earringcstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl','Rhinestones', 'Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.earringcstonetype), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :earringcstoneshape, "Stone Shape" %>
+                        <%= form.select :earringcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.earringcstoneshape), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringcstonecount, "Stone Count" %>
+                        <%= form.number_field :earringcstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringcstonecaratweight, "Carat Weight" %>
+                        <%= form.number_field :earringcstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringcstoneclaritygrade, "Clarity Grade" %>
+                        <%= form.select :earringcstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.earringcstoneclaritygrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringcstonecolorgrade, "Color Grade" %>
+                      <%= form.select :earringcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.earringcstonecolorgrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringcstonedimensionl, "Dimensions" %>
+                        <%= form.number_field :earringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <div class="no-label-field">
+                          <%= form.number_field :earringcstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                   <div class="col-xs-6 collapse-group panel small-panel">
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails8">Side Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <div class="collapse" id="viewdetails8">
+                      <div class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :earringsstonetype, "Stone Type" %>
+                        <%= form.select :earringsstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.earringsstonetype), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :earringsstoneshape, "Stone Shape" %>
+                        <%= form.select :earringsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.earringsstoneshape), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringsstonecount, "Stone Count" %>
+                        <%= form.number_field :earringsstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringsstonecaratweight, "Carat Weight" %>
+                        <%= form.number_field :earringsstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringsstoneclaritygrade, "Clarity Grade" %>
+                        <%= form.select :earringsstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.earringsstoneclaritygrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringsstonecolorgrade, "Color Grade" %>
+                      <%= form.select :earringsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.earringsstonecolorgrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :earringsstonedimensionl, "Dimensions" %>
+                        <%= form.number_field :earringsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <div class="no-label-field">
+                          <%= form.number_field :earringsstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                 </div>
                 </div>
 <!---NECKLACES--------------------------------------------------------------------------------------->
                 <div id="necklacedetails">
@@ -352,7 +586,7 @@
                         <%= form.text_field :necklacehallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :era %>
+                        <%= form.label :era, "Style" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :necklacestyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.necklacestyle), {}, {:class => "form-control"} %>
                       </div>
@@ -369,6 +603,84 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                   <div class="col-xs-6 collapse-group panel small-panel">
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails9">Center Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <div class="collapse" id="viewdetails9">
+                      <div class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :necklacecstonetype, "Stone Type" %>
+                        <%= form.select :necklacecstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl','Rhinestones', 'Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.necklacecstonetype), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :necklacecstoneshape, "Stone Shape" %>
+                        <%= form.select :necklacecstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.necklacecstoneshape), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacecstonecount, "Stone Count" %>
+                        <%= form.number_field :necklacecstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacecstonecaratweight, "Carat Weight" %>
+                        <%= form.number_field :necklacecstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacecstoneclaritygrade, "Clarity Grade" %>
+                        <%= form.select :necklacecstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.necklacecstoneclaritygrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacecstonecolorgrade, "Color Grade" %>
+                      <%= form.select :necklacecstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.necklacecstonecolorgrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacecstonedimensionl, "Dimensions" %>
+                        <%= form.number_field :necklacecstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <div class="no-label-field">
+                          <%= form.number_field :necklacecstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                   <div class="col-xs-6 collapse-group panel small-panel">
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails10">Side Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <div class="collapse" id="viewdetails10">
+                      <div class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :necklacesstonetype, "Stone Type" %>
+                        <%= form.select :necklacesstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.necklacesstonetype), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :necklacesstoneshape, "Stone Shape" %>
+                        <%= form.select :necklacesstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.necklacesstoneshape), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacesstonecount, "Stone Count" %>
+                        <%= form.number_field :necklacesstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacesstonecaratweight, "Carat Weight" %>
+                        <%= form.number_field :necklacesstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacesstoneclaritygrade, "Clarity Grade" %>
+                        <%= form.select :necklacesstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.necklacesstoneclaritygrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacesstonecolorgrade, "Color Grade" %>
+                      <%= form.select :necklacesstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.necklacesstonecolorgrade), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <%= form.label :necklacesstonedimensionl, "Dimensions" %>
+                        <%= form.number_field :necklacesstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
+                      </div>
+                      <div class="col-xs-6 form-group">
+                        <div class="no-label-field">
+                          <%= form.number_field :earringsstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                 </div>
                 </div>
 <!---OTHER JEWELRY--------------------------------------------------------------------------------------->
 
@@ -414,7 +726,7 @@
                         <%= form.text_field :pendanthallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :pendantstyle %>
+                        <%= form.label :pendantstyle, "Style" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :pendantstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.pendantstyle), {}, {:class => "form-control"} %>
                       </div>
@@ -457,7 +769,7 @@
                         <%= form.text_field :pinhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :pinstyle %>
+                        <%= form.label :pinstyle, "Style" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :pinstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.pinstyle), {}, {:class => "form-control"} %>
                       </div>
@@ -506,7 +818,7 @@
                         <%= form.text_field :ringhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :ringstyle %>
+                        <%= form.label :ringstyle, "Style" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
                       </div>
