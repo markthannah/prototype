@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929174135) do
+ActiveRecord::Schema.define(version: 20171002133155) do
 
   create_table "item_details", force: :cascade do |t|
     t.string "metal_type"
@@ -112,6 +112,12 @@ ActiveRecord::Schema.define(version: 20170929174135) do
     t.text "braceletsstoneshape"
     t.float "braceletsstonedimensionw"
     t.float "braceletsstonedimensionl"
+    t.text "braceletcstonecolorgrade"
+    t.text "braceletcstoneclaritygrade"
+    t.float "braceletcstonecaratweight"
+    t.text "braceletsstonecolorgrade"
+    t.text "braceletsstoneclaritygrade"
+    t.float "braceletsstonecaratweight"
     t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 

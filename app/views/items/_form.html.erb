@@ -107,19 +107,31 @@
                     </div>
                     <div class="row">
                      <div class="col-xs-6 collapse-group panel small-panel">
-                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails1">Add Center Stones <span class="fa fa-diamond"> </span></a>
+                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails1">Center Stone Attributes <span class="fa fa-diamond"> </span></a>
                       <div class="collapse" id="viewdetails1">
                         <div class="col-xs-12 form-group sub-menu-margin">
-                          <%= form.label :braceletcstonecount, "Stone Count" %>
-                          <%= form.number_field :braceletcstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
-                        </div>
-                        <div class="col-xs-12 form-group">
                           <%= form.label :braceletcstonetype, "Stone Type" %>
                           <%= form.select :braceletcstonetype, options_for_select([["Select One...", ""],'Amethyst','Alexandrite','Aquamarine','Diamond','Emerald','Onyz','Opal','Peridot', 'Pearl', 'Ruby', 'Sapphire', 'Tanzanite'], :selected => @item.braceletcstonetype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-12 form-group">
                           <%= form.label :braceletcstoneshape, "Stone Shape" %>
                           <%= form.select :braceletcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.braceletcstoneshape), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletcstonecount, "Stone Count" %>
+                          <%= form.number_field :braceletcstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletcstonecaratweight, "Carat Weight" %>
+                          <%= form.number_field :braceletcstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletcstoneclaritygrade, "Clarity Grade" %>
+                          <%= form.select :braceletcstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.braceletcstoneclaritygrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletcstonecolorgrade, "Color Grade" %>
+                        <%= form.select :braceletcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.braceletcstonecolorgrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :braceletcstonedimensionl, "Dimensions" %>
@@ -133,19 +145,31 @@
                       </div>
                      </div>
                      <div class="col-xs-6 collapse-group panel small-panel">
-                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails2">Add Side Stones <span class="fa fa-diamond"> </span></a>
+                      <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails2">Side Stone Attributes <span class="fa fa-diamond"> </span></a>
                       <div class="collapse" id="viewdetails2">
                         <div class="col-xs-12 form-group sub-menu-margin">
-                          <%= form.label :braceletsstylestonecount, "Stone Count" %>
-                          <%= form.number_field :braceletsstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
-                        </div>
-                        <div class="col-xs-12 form-group">
-                          <%= form.label :braceletssstonetype, "Stone Type" %>
+                          <%= form.label :braceletsstonetype, "Stone Type" %>
                           <%= form.select :braceletsstonetype, options_for_select([["Select One...", ""],'Amethyst','Alexandrite','Aquamarine','Diamond','Emerald','Onyz','Opal','Peridot', 'Pearl', 'Ruby', 'Sapphire', 'Tanzanite'], :selected => @item.braceletsstonetype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-12 form-group">
                           <%= form.label :braceletsstoneshape, "Stone Shape" %>
                           <%= form.select :braceletsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.braceletsstoneshape), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletsstonecount, "Stone Count" %>
+                          <%= form.number_field :braceletsstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletsstonecaratweight, "Carat Weight" %>
+                          <%= form.number_field :braceletsstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Select a Stone Count" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletsstoneclaritygrade, "Clarity Grade" %>
+                          <%= form.select :braceletsstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.braceletsstoneclaritygrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :braceletsstonecolorgrade, "Color Grade" %>
+                        <%= form.select :braceletsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.braceletsstonecolorgrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :braceletsstonedimensionl, "Dimensions" %>
@@ -185,7 +209,7 @@
                           <%= form.select :broochclosure, options_for_select([["Select One...", ""],'C Clasp', 'Safety Clasp', 'Trobone Clasp', 'None'], :selected => @item.broochclosure), {}, {:class => "form-control"} %>
                         </div>
                         <div class="form-group form-font">
-                          <%= form.label :broochhallmarks, "Hallmarks" %><br>
+                          <%= form.label :broochhallmarks, "Hallmarks" %>
                           <%= form.text_field :broochhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="form-group">

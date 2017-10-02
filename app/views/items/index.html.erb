@@ -5,8 +5,10 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Item Name</th>
-      <th>Category</th>
+      <th><%= link_to "Item Name", :sort => "name" %>
+        <span class="fa fa-caret-down"></th>
+      <th><%= link_to "Category", :sort => "category" %>
+        <span class="fa fa-caret-down"></th>
       <th colspan="3"></th>
     </tr>
   </thead>
