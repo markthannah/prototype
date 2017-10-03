@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002205842) do
+ActiveRecord::Schema.define(version: 20171003155721) do
 
   create_table "item_details", force: :cascade do |t|
     t.string "metal_type"
@@ -230,6 +230,30 @@ ActiveRecord::Schema.define(version: 20171002205842) do
     t.text "ringsstonecolorgrade"
     t.text "ringsstoneclaritygrade"
     t.float "ringsstonecaratweight"
+    t.text "watchbraceletmaterial"
+    t.text "watchbraceletstyle"
+    t.text "watchbraceletclasp"
+    t.text "watchbraceletmarks"
+    t.float "watchbraceletlength"
+    t.float "watchlugwidth"
+    t.float "watchcasewidth"
+    t.float "watchjewelcount"
+    t.float "watchsize"
+    t.float "otherjewelrystonecount"
+    t.text "otherjewelrystonetype"
+    t.text "otherjewelrystoneshape"
+    t.float "otherjewelrystonedimensionw"
+    t.float "otherjewelrystonedimensionl"
+    t.text "otherjewelrystonecolorgrade"
+    t.text "otherjewelrystoneclaritygrade"
+    t.float "otherjewelrystonecaratweight"
+    t.string "otherjewelrydesigner"
+    t.string "otherjewelrymetaltype"
+    t.string "otherjewelryothermetal"
+    t.string "otherjewelryhallmarks"
+    t.string "otherjewelrystyle"
+    t.float "otherjewelrytotalweight"
+    t.text "otherjewelryweighttype"
     t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 

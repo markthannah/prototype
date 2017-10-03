@@ -59,11 +59,28 @@ label {
 }
 
 .small-panel {
-  padding-left:0px;
-  margin-left:20px;
-  padding-right:0px;
+  padding-left: 0px;
+  margin-left: 20px;
+  padding-right: 0px;
   width: 45%;
   border-style: solid;
   border-color: #CCCCCC;
   border-width: .01em;
+}
+
+.big-panel {
+  padding-left: 0px;
+  padding-right: 0px;
+  border-style: solid;
+  border-color: #CCCCCC;
+  border-width: .01em;
+}
+
+.wellsm {
+  width: 96%;
+  margin-left: 12px;
+}
+
+.top-panel-margin {
+  margin-top: 20px;
 }
