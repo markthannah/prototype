@@ -128,7 +128,7 @@
                         <%= form.select :braceletcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.braceletcstonecolorgrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :braceletcstonedimensionl, "Dimensions" %>
+                          <%= form.label :braceletcstonedimensionl, "Dimensions (mm)" %>
                           <%= form.number_field :braceletcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                         </div>
                         <div class="col-xs-6 form-group">
@@ -166,7 +166,7 @@
                         <%= form.select :braceletsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.braceletsstonecolorgrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :braceletsstonedimensionl, "Dimensions" %>
+                          <%= form.label :braceletsstonedimensionl, "Dimensions (mm)" %>
                           <%= form.number_field :braceletsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                         </div>
                         <div class="col-xs-6 form-group">
@@ -253,7 +253,7 @@
                         <%= form.select :broochcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.broochcstonecolorgrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :broochcstonedimensionl, "Dimensions" %>
+                          <%= form.label :broochcstonedimensionl, "Dimensions (mm)" %>
                           <%= form.number_field :broochcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                         </div>
                         <div class="col-xs-6 form-group">
@@ -291,7 +291,7 @@
                         <%= form.select :broochsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.broochsstonecolorgrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :broochsstonedimensionl, "Dimensions" %>
+                          <%= form.label :broochsstonedimensionl, "Dimensions (mm)" %>
                           <%= form.number_field :broochsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                         </div>
                         <div class="col-xs-6 form-group">
@@ -370,7 +370,7 @@
                       <%= form.select :cufflinkcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.cufflinkcstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :cufflinkcstonedimensionl, "Dimensions" %>
+                        <%= form.label :cufflinkcstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :cufflinkcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -408,7 +408,7 @@
                       <%= form.select :cufflinksstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.cufflinksstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :cufflinksstonedimensionl, "Dimensions" %>
+                        <%= form.label :cufflinksstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :cufflinksstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -495,7 +495,7 @@
                       <%= form.select :earringcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.earringcstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :earringcstonedimensionl, "Dimensions" %>
+                        <%= form.label :earringcstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :earringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -533,7 +533,7 @@
                       <%= form.select :earringsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.earringsstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :earringsstonedimensionl, "Dimensions" %>
+                        <%= form.label :earringsstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :earringsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -620,7 +620,7 @@
                       <%= form.select :necklacecstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.necklacecstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :necklacecstonedimensionl, "Dimensions" %>
+                        <%= form.label :necklacecstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :necklacecstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -658,7 +658,7 @@
                       <%= form.select :necklacesstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.necklacesstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :necklacesstonedimensionl, "Dimensions" %>
+                        <%= form.label :necklacesstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :necklacesstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -702,7 +702,7 @@
                       <%= form.select :otherjewelrystonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.otherjewelrystonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :otherjewelrystonedimensionl, "Dimensions" %>
+                        <%= form.label :otherjewelrystonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :otherjewelrystonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -839,7 +839,7 @@
                       <%= form.select :pendantcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.pendantcstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :pendantcstonedimensionl, "Dimensions" %>
+                        <%= form.label :pendantcstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :pendantcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -877,7 +877,7 @@
                       <%= form.select :pendantsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.pendantsstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :pendantsstonedimensionl, "Dimensions" %>
+                        <%= form.label :pendantsstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :pendantsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -962,7 +962,7 @@
                       <%= form.select :pincstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.pincstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :pincstonedimensionl, "Dimensions" %>
+                        <%= form.label :pincstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :pincstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -1000,7 +1000,7 @@
                         <%= form.select :pinsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.pinsstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :pinsstonedimensionl, "Dimensions" %>
+                        <%= form.label :pinsstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :pinsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -1091,7 +1091,7 @@
                         <%= form.select :ringcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.ringcstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :ringcstonedimensionl, "Dimensions" %>
+                        <%= form.label :ringcstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :ringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -1129,7 +1129,7 @@
                         <%= form.select :ringsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.ringsstonecolorgrade), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :ringsstonedimensionl, "Dimensions" %>
+                        <%= form.label :ringsstonedimensionl, "Dimensions (mm)" %>
                         <%= form.number_field :ringsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -1179,11 +1179,11 @@
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group ">
-                          <%= form.label :watchlugwidth, "Measurement Lug to Lug" %>
+                          <%= form.label :watchlugwidth, "Measurement Lug to Lug (mm)" %>
                           <%= form.number_field :watchlugwidth,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Enter a width in mm." %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :watchcasewidth, "Measurement Case to Case" %>
+                          <%= form.label :watchcasewidth, "Measurement Case to Case (mm)" %>
                           <%= form.number_field :watchcasewidth,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Enter a width in mm." %>
                         </div>
                       </div>
@@ -1218,8 +1218,14 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-xs-4 col-xs-offset-4">
+                      <button type="button" class="btn btn-default DC-button">Add another Watch?</button>
+                    </div>
+                  </div>
                 </div>
               </div>
+
 <!---DUMMY FIELDS--------------------------------------------------------------------------------------->
             <div class="form-group col-xs-12">
               <h4>Condition</h4>
