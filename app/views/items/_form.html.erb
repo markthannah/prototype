@@ -1015,8 +1015,20 @@
                 </div>
 <!---RINGS--------------------------------------------------------------------------------------->
                 <div id="ringdetails">
+                  <div class="form-group">
+                  <p>Ring Type | Required</p>
+                    <%= form.select :ringquality, options_for_select([
+                      ['Select One...', ''],
+                      ['Fine','Fine'],
+                      ['Fashion','Fashion'],
+                      ['Costume','Costume'],
+                      ], @item.ringquality), {}, {:class => "form-control"} %>
+                    </div>
+                </div>
+                <div id="fineringdetails" class="jewelryattributes">
+                  <hr>
                   <div class="panel panel-default">
-                    <div class="panel-heading">Ring Details | Required</div>
+                    <div class="panel-heading">Fine Ring Details | Required</div>
                     <div class="panel-body">
                       <div class="form-group">
                         <%= form.label :ringdesigner, "Designer" %><br>
@@ -1140,8 +1152,26 @@
                     </div>
                    </div>
                  </div>
-
                 </div>
+
+                <div id="fashionringdetails" class="jewelryattributes">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Fashion Ring Details | Required</div>
+                    <div class="panel-body">
+                      <p style="text-align:center;">Which attributes should be are appropriate for Fashion Jewelery?</p>
+                    </div>
+                   </div>
+                 </div>
+
+                <div id="costumeringdetails" class="jewelryattributes">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Costume Ring Details</div>
+                    <div class="panel-body">
+                      <p style="text-align:center;">There are no attributes for costume jewelry. Please proceed to the description.</p>
+                    </div>
+                   </div>
+                 </div>
+
 <!---WATCHES--------------------------------------------------------------------------------------->
                 <div id="watchdetails">
                   <div class="panel panel-default">
@@ -1379,5 +1409,32 @@
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+
+$(document).ready(function () {
+    toggleField();
+    $("#item_ringquality").change(function () {
+        toggleField();
+    });
+
+});
+function toggleField() {
+
+    if ($("#item_ringquality").val() === "Fine")
+        $("#fineringdetails").show();
+    else
+        $("#fineringdetails").hide();
+
+    if ($("#item_ringquality").val() === "Fashion")
+        $("#fashionringdetails").show();
+    else
+        $("#fashionringdetails").hide();
+
+    if ($("#item_ringquality").val() === "Costume")
+        $("#costumeringdetails").show();
+    else
+        $("#costumeringdetails").hide();
+
+}
 
   </script>
