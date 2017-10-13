@@ -1105,7 +1105,7 @@
                       </div>
                       <div class="row">
                         <div id="ringweighttype" class="col-xs-6 form-group">
-                          <%= form.label :ringweighttype, "Total Weight" %>
+                          <%= form.label :ringweighttype, "Total Weight | Required" %>
                           <%= form.select :ringweighttype, options_for_select([["Select One...", ""],['ozt','ozt'],['dwt','dwt']], :selected => @item.ringweighttype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
@@ -1119,6 +1119,7 @@
                       </div>
                       <div class="col-xs-6 form-group" style="padding-left:0px;">
                         <%= form.label :ringcode, "GGID Code (For Disclaimer)" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="All Disclaimers are Important"></span>
                         <%= form.select :ringcode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcode), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
