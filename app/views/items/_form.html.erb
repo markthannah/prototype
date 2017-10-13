@@ -1166,8 +1166,37 @@
                   <div class="panel panel-default">
                     <div class="panel-heading">Costume Ring Details</div>
                     <div class="panel-body">
-                      <p style="text-align:center;">There are no attributes for costume jewelry. Please proceed to the description.</p>
-                    </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringcostumecount, "Number of Items" %>
+                          <%= form.number_field :ringcostumecount,in: 1..50, step: 1, class: "form-control", placeholder: "Enter #" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringages, "Age" %>
+                          <%= form.select :ringages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringage), {}, {:class => "form-control"} %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringothermetal, "Metal Type" %>
+                          <%= form.select :ringothermetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringothermetal), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringggidcode, "GGID Code (For Disclaimer)" %>
+                          <%= form.select :ringothermetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringothermetal), {}, {:class => "form-control"} %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.check_box :ringgemdisclaimer %>
+                          <%= form.label :ringgemdisclaimer, "Use Gemology Disclaimer?" %><br>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.check_box :ringgeodisclaimer %>
+                          <%= form.label :ringgeodisclaimer, "Use Geologist Disclaimer? (Cin DC Only)" %>
+                        </div>
+                      </div>
+                     </div>
                    </div>
                  </div>
 
