@@ -1025,49 +1025,110 @@
                       ], @item.ringquality), {}, {:class => "form-control"} %>
                     </div>
                 </div>
+
                 <div id="fineringdetails" class="jewelryattributes">
                   <div class="panel panel-default">
-                    <div class="panel-heading">Fine Ring Details | Required</div>
+                    <div class="panel-heading">Fine Ring Details</div>
                     <div class="panel-body">
                       <div class="form-group">
-                        <%= form.label :ringdesigner, "Designer" %><br>
-                        <%= form.text_field :ringdesigner, class: "form-control", placeholder: "Optional Attribute" %>
+                        <%= form.label :ringdesigner, "Designer | Important" %><br>
+                        <%= form.select :ringdesigner, options_for_select([["Select One...", ""],'David Yurman','Harry Winston','Tiffany','Add more designers to the list'], @item.ringdesigner), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group">
-                          <%= form.label :ringsize, "Ring Size" %>
-                          <%= form.number_field :ringsize,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Select a Ring Size" %>
+                          <%= form.label :ringsize, "Ring Size | Required" %>
+                          <%= form.number_field :ringsize,in: 1.0..10.0, step: 0.25, class: "form-control", placeholder: "Select a Ring Size" %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringages, "Age | Required" %>
+                          <%= form.select :ringages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringage), {}, {:class => "form-control"} %>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group">
-                          <%= form.label :ringothermetal, "Metal Type" %>
-                          <%= form.select :ringothermetal, options_for_select([["Select One...", ""],'White Gold','Yellow Gold','Rose Gold','Silver','Palladium','Platinum','Other'], @item.ringothermetal), {}, {:class => "form-control"} %>
+                          <%= form.label :ringmetaltype, "Primary Metal Type(s) | Required" %>
+                          <%= form.select :ringmetaltype, options_for_select([
+                            '10K White Gold',
+                            '14K White Gold',
+                            '18K White Gold',
+                            '24K White Gold',
+                            '10K Yellow Gold',
+                            '14K Yellow Gold',
+                            '18K Yellow Gold',
+                            '24K Yellow Gold',
+                            '10K Rose Gold',
+                            '14K Rose Gold',
+                            '18K Rose Gold',
+                            '24K Rose Gold',
+                            '.925 Silver',
+                            '.999 Silver',
+                            'Silver Plated',
+                            'Palladium',
+                            'Platinum',
+                            'Platinum/Palladium',
+                            'Other'],
+                             @item.ringmetaltype), {}, {:multiple => true, :class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <div class="secondary-dropdown">
-                          <%= form.select :ringmetaltype, options_for_select([["Select One...", ""],'925','10K','14K','18K', 'Other'], :selected => @item.ringmetaltype), {}, {:class => "form-control"} %>
-                          </div>
+                          <%= form.label :ringothermetal, "Secondary Metal Type(s) | Important" %>
+                          <%= form.select :ringothermetal, options_for_select([
+                            '10K White Gold',
+                            '14K White Gold',
+                            '18K White Gold',
+                            '24K White Gold',
+                            '10K Yellow Gold',
+                            '14K Yellow Gold',
+                            '18K Yellow Gold',
+                            '24K Yellow Gold',
+                            '10K Rose Gold',
+                            '14K Rose Gold',
+                            '18K Rose Gold',
+                            '24K Rose Gold',
+                            '.925 Silver',
+                            '.999 Silver',
+                            'Silver Plated',
+                            'Palladium',
+                            'Platinum',
+                            'Platinum/Palladium',
+                            'Other'],
+                             @item.ringothermetal), {}, {:multiple => true, :class => "form-control"} %>
                         </div>
                       </div>
                       <div class="form-group form-font">
-                        <%= form.label :ringhallmarks, "Hallmarks" %><br>
+                        <%= form.label :ringhallmarks, "Hallmarks | Important" %><br>
                         <%= form.text_field :ringhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :ringstyle, "Style" %>
+                        <%= form.label :ringstyle, "Source | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Georgian: Circa 1714-1837<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Retro: Circa 1930s-1950<br>Art Deco: Circa 1920-1930"></span>
-                        <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Asian','Native American','Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
+                        <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Asian','Native American','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
-                        <div class="col-xs-6 form-group ">
-                          <%= form.label :ringtotalweighttype, "Total Weight" %>
-                          <%= form.number_field :ringtotalweighttype,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Enter a Total Weight" %>
+                        <div id="ringweighttype" class="col-xs-6 form-group">
+                          <%= form.label :ringweighttype, "Total Weight" %>
+                          <%= form.select :ringweighttype, options_for_select([["Select One...", ""],['ozt','ozt'],['dwt','dwt']], :selected => @item.ringweighttype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <div class="secondary-dropdown">
-                          <%= form.select :ringweighttype, options_for_select([["Select One...", ""],'ozt','dwt'], :selected => @item.ringweighttype), {}, {:class => "form-control"} %>
+                          <div id= "twodecimals" class="secondary-dropdown">
+                            <%= form.number_field :ringtotalweighttype,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Enter Total Weight" %>
                           </div>
+                          <div id="threedecimals" class="secondary-dropdown">
+                            <%= form.number_field :ringtotalweighttype,in: 1.0..10.0, step: 0.005, class: "form-control", placeholder: "Enter Total Weight" %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6 form-group" style="padding-left:0px;">
+                        <%= form.label :ringcode, "GGID Code (For Disclaimer)" %>
+                        <%= form.select :ringcode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcode), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-6 form-group">
+                          <%= form.check_box :ringgemdisclaimer %>
+                          <%= form.label :ringgemdisclaimer, "Use Gemology Disclaimer?" %><br>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.check_box :ringgeodisclaimer %>
+                          <%= form.label :ringgeodisclaimer, "Use Geologist Disclaimer? (Cin DC Only)" %>
                         </div>
                       </div>
                     </div>
@@ -1157,7 +1218,7 @@
                   <div class="panel panel-default">
                     <div class="panel-heading">Fashion Ring Details | Required</div>
                     <div class="panel-body">
-                      <p style="text-align:center;">Which attributes are appropriate for Fashion Jewelery?</p>
+                      <p style="text-align:center;"> These will be added once we settle on the Ring Atttributes (minus stone attributes). </p>
                     </div>
                    </div>
                  </div>
@@ -1173,7 +1234,7 @@
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringages, "Age" %>
-                          <%= form.select :ringages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringage), {}, {:class => "form-control"} %>
+                          <%= form.select :ringages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringages), {}, {:class => "form-control"} %>
                         </div>
                       </div>
                       <div class="row">
@@ -1182,8 +1243,8 @@
                           <%= form.select :ringothermetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringothermetal), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :ringggidcode, "GGID Code (For Disclaimer)" %>
-                          <%= form.select :ringothermetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringothermetal), {}, {:class => "form-control"} %>
+                          <%= form.label :ringcode, "GGID Code (For Disclaimer)" %>
+                          <%= form.select :ringcode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcode), {}, {:class => "form-control"} %>
                         </div>
                       </div>
                       <div class="row">
@@ -1375,13 +1436,13 @@
 
   <script>
   $(document).ready(function () {
-      toggleFields();
+      toggleCategories();
       $("#item_category").change(function () {
-          toggleFields();
+          toggleCategories();
       });
 
   });
-  function toggleFields() {
+  function toggleCategories() {
 
       if ($("#item_category").val() === "Bracelets")
           $("#braceletdetails").show();
@@ -1440,13 +1501,13 @@
 
 
 $(document).ready(function () {
-    toggleField();
+    toggleFields();
     $("#item_ringquality").change(function () {
-        toggleField();
+        toggleFields();
     });
 
 });
-function toggleField() {
+function toggleFields() {
 
     if ($("#item_ringquality").val() === "Fine")
         $("#fineringdetails").show();
@@ -1464,5 +1525,27 @@ function toggleField() {
         $("#costumeringdetails").hide();
 
 }
+
+$(document).ready(function () {
+    toggleRingweight();
+    $("#item_ringweighttype").change(function () {
+        toggleRingweight();
+    });
+
+});
+function toggleRingweight() {
+
+    if ($("#item_ringweighttype").val() === "dwt")
+        $("#twodecimals").show();
+    else
+        $("#twodecimals").hide();
+
+    if ($("#item_ringweighttype").val() === "ozt")
+        $("#threedecimals").show();
+    else
+        $("#threedecimals").hide();
+
+}
+
 
   </script>
