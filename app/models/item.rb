@@ -12,9 +12,5 @@ class Item < ApplicationRecord
   has_many :item_detail
 
   validates :name, presence: true
-  validates :ringsize, presence: true
-  validates :ringages, presence: true
-  validates :category, presence: true
-  validates :ringmetaltype, presence: true
-  validates :ringweighttype, presence: true
+
 end
