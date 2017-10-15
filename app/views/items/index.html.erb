@@ -19,7 +19,7 @@
         <td class="table-font"><%= link_to edit_item_path(item) do %>
           <%=item.name%>
         <% end %></td>
-        <td class="table-font"><%= item.ringmetaltype%>
+        <td class="table-font"><%= item.category%>
         <td style="width:5%"><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
