@@ -5,7 +5,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th><%= link_to "Item Name", :sort => "name" %>
+      <th><%= link_to "View Item", :sort => "name" %>
         <span class="fa fa-caret-down"></th>
       <th><%= link_to "Category", :sort => "category" %>
         <span class="fa fa-caret-down"></th>
@@ -16,11 +16,19 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td class="table-font"><%= link_to edit_item_path(item) do %>
+        <td class="table-font"><%= link_to item_path(item) do %>
           <%=item.name%>
         <% end %></td>
+
+
+
         <td class="table-font"><%= item.category%>
-        <td style="width:5%"><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td style="width:15%">
+          <%= link_to edit_item_path(item), class:"btn btn-primary", :method => :get do %>
+            <span class="fa fa-pencil-square-o"></span> Edit
+          <% end %>
+          <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

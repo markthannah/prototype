@@ -1,14 +1,72 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <h4 class="sub-item-name-show">
+      VIEW MORE ITEMS FROM STERLING SILVER, HOME FURNISHINGS, DÉCOR & MORE
+    </h4>
+    <h1 class="item-name-show">
+      <%= @item.name %>
+    </h1>
+    <hr>
+    <h5 class="sub-item-name-show">
+      WEDNESDAY, OCTOBER 18TH 2017 @ 10:07PM EDT
+    </h5>
+ </div>
 
-<p>
-  <strong>Barcode:</strong>
-  <%= @item.barcode %>
-</p>
+ <div class="row">
+   <div class="col-xs-12">
+     <div class="row">
+       <div class="col-xs-6">
+         <i class="fa fa-picture-o" style="font-size:35em;" aria-hidden="true"></i>
+       </div>
+       <div class="col-xs-6" style="margin-top:35px;">
+         <div class="well wellbig">
+           <p class="centered item-name">This section includes bid infrormation, shipping details, and related items.</p>
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <div class="row">
+    <div class="col-xs-12">
+      <strong class="item-description">ITEM DETAILS</strong>
+    </div>
+    <div class="col-xs-12" style="padding-top:15px; padding-bottom:15px;">
+      <p class="item-description"> The item's description would continue to display here.</p>
+    </div>
+    <div class="col-xs-12">
+      <strong class="item-description">Metal Type:</strong>
+      <%= @item.ringmetaltype.join(", ") %>
+    </div>
+    <% unless @item.ringothermetal.blank? %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Secondary Metal Type:</strong>
+        <%= @item.ringothermetal.join(", ") %>
+      </div>
+      <% end %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Ring Size:</strong>
+      <%= @item.ringsize %>
+    </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Hallmarks:</strong>
+      <%= @item.ringhallmarks %>
+    </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Total Weight:</strong>
+      <%= @item.ringtotalweighttype %>
+      <%= @item.ringtotalweighttype2 %>
+      <%= @item.ringweighttype %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 new-heading">
+      <strong class="item-description">STONE DETAILS...</strong>
+    </div>
+  </div>
+
+
+</br></br></br></br></br></br></br></br></br></br></br></br>

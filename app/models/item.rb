@@ -1,4 +1,11 @@
 class Item < ApplicationRecord
+
+  before_validation do |item|
+  item.ringmetaltype.reject!(&:blank?) if item.ringmetaltype
+  item.ringothermetal.reject!(&:blank?) if item.ringothermetal
+  end
+
+
   serialize :ringmetaltype
   serialize :ringothermetal
 
