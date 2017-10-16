@@ -1016,7 +1016,8 @@
 <!---RINGS--------------------------------------------------------------------------------------->
                 <div id="ringdetails">
                   <div class="form-group">
-                  <p>Ring Type | Required</p>
+                    <%= form.label :ringquality, "Ring Type | Important" %>
+                  <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We aren't looking to display this information to buyers, just use it internally to determine which data to capture."></span>
                     <%= form.select :ringquality, options_for_select([
                       ['Select One...', ''],
                       ['Fine','Fine'],
@@ -1031,22 +1032,26 @@
                     <div class="panel-heading">Fine Ring Details</div>
                     <div class="panel-body">
                       <div class="form-group">
-                        <%= form.label :ringdesigner, "Designer | Important" %><br>
+                        <%= form.label :ringdesigner, "Designer | Important" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll support a small list of the most common designers. This may eventually be used as a filter."></span>
                         <%= form.select :ringdesigner, options_for_select([["Select One...", ""],'David Yurman','Harry Winston','Tiffany','Add more designers to the list'], @item.ringdesigner), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringsize, "Ring Size | Required" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This increments by .25. It's a candidate for a filter in the future."></span>
                           <%= form.number_field :ringsize,in: 1.0..10.0, step: 0.25, class: "form-control", placeholder: "Select a Ring Size" %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringages, "Age | Required" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="No change here from the way it's used today."></span>
                           <%= form.select :ringages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringages), {}, {:class => "form-control"} %>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringmetaltype, "Primary Metal Type(s) | Required" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is a mult-select meant to capture all metal types used as a primariy materials for the ring. All will continue to be used in the materials filter, and display on the itme page."></span>
                           <%= form.select :ringmetaltype, options_for_select([
                             '10K White Gold',
                             '14K White Gold',
@@ -1071,6 +1076,7 @@
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringothermetal, "Secondary Metal Type(s)" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We aren't requiring this value, but it will be useful to display it separately on the item page for accents, prong metals, etc."></span>
                           <%= form.select :ringothermetal, options_for_select([
                             '10K White Gold',
                             '14K White Gold',
@@ -1095,17 +1101,19 @@
                         </div>
                       </div>
                       <div class="form-group form-font">
-                        <%= form.label :ringhallmarks, "Hallmarks | Important" %><br>
+                        <%= form.label :ringhallmarks, "Hallmarks | Important" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We're looking to create a defined list here. It'll be useful to display on the item view page, and for analysis by the data science team."></span>
                         <%= form.text_field :ringhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
                         <%= form.label :ringstyle, "Source | Important" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Art Deco: Circa 1920-1930"></span>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll use this as a filter on the results page, and it should be displayed on the item view page. We may also want to include this type of information in the form:<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Art Deco: Circa 1920-1930"></span>
                         <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Asian','Native American','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
                         <div id="ringweighttype" class="col-xs-6 form-group">
                           <%= form.label :ringweighttype, "Total Weight | Required" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="The form automatically switches validation on the weight for two or three decimal places, based on whether ozt or dwt is selected."></span>
                           <%= form.select :ringweighttype, options_for_select([["Select One...", ""],['ozt','ozt'],['dwt','dwt']], :selected => @item.ringweighttype), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
@@ -1119,7 +1127,7 @@
                       </div>
                       <div class="col-xs-6 form-group" style="padding-left:0px;">
                         <%= form.label :ringcode, "GGID Code (For Disclaimer)" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="All Disclaimers are Important"></span>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="All Disclaimers will continue to be Important, not Required."></span>
                         <%= form.select :ringcode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcode), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">

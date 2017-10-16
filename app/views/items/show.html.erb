@@ -78,6 +78,39 @@
       <strong class="item-description">STONE DETAILS...</strong>
     </div>
   </div>
+
+  <% unless @item.ringgeodisclaimer.blank? %>
+  <div class="row">
+    <div class="col-xs-6">
+      <p class="item-description">
+        <ul>
+          <li>
+            All diamond and gemstone grading is done under GIA standards as the mounting permits, where gemstones are present. All weights and measurements are estimated and approximate. Industry standard and accepted treatments for gemstones are assumed unless otherwise noted.
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <% else %>
+  <% end %>
+
+  <% unless @item.ringgemdisclaimer.blank? %>
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="item-description">
+        <ul>
+          <li>
+            This item has been evaluated and verified by an independent Graduate Gemologist. (<%=@item.ringcode%>).
+        </li>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <% else %>
+  <% end %>
+
+
+
   <% else %>
   <% end %>
 
