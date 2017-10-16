@@ -53,7 +53,8 @@
     <% end %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Ring Size:</strong>
-      <%= sprintf('%.2f',@item.ringsize)%>
+      <%= @item.ringsize %>
+      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Ring size needs to be stored and displayed out to the hundreths place, even if the final digit is a zero."></span>
     </div>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Hallmarks:</strong>
@@ -64,6 +65,7 @@
       <%= @item.ringtotalweighttype %>
       <%= @item.ringtotalweighttype2 %>
       <%= @item.ringweighttype %>
+      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="If the weight is .ozt, storage and the view has to take the decimal out to the thousandths place, even if the final digit is a 0.</br>If the weight is .dwt, storage and the view has to take the decimal out to the hundreths place, even if the final digit is a 0."></span>
     </div>
     <% unless @item.ringstyle.blank? %>
       <div class="col-xs-12 item-details">
@@ -115,3 +117,9 @@
   <% end %>
 
 </br></br></br></br></br></br></br></br></br></br></br></br>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
