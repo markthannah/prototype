@@ -53,7 +53,7 @@
     <% end %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Ring Size:</strong>
-      <%= @item.ringsize %>
+      <%= sprintf('%.2f',@item.ringsize)%>
     </div>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Hallmarks:</strong>

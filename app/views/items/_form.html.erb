@@ -1065,9 +1065,12 @@
                             '14K Rose Gold',
                             '18K Rose Gold',
                             '24K Rose Gold',
-                            '.925 Silver',
+                            '.900 Gold',
+                            'Gold Plate',
+                            'Sterling Silver',
+                            '.900 Silver',
                             '.999 Silver',
-                            'Silver Plated',
+                            'Silver Plate',
                             'Palladium',
                             'Platinum',
                             'Platinum/Palladium',
@@ -1090,9 +1093,12 @@
                             '14K Rose Gold',
                             '18K Rose Gold',
                             '24K Rose Gold',
-                            '.925 Silver',
+                            '.900 Gold',
+                            'Gold Plate',
+                            'Sterling Silver',
+                            '.900 Silver',
                             '.999 Silver',
-                            'Silver Plated',
+                            'Silver Plate',
                             'Palladium',
                             'Platinum',
                             'Platinum/Palladium',
@@ -1101,9 +1107,9 @@
                         </div>
                       </div>
                       <div class="form-group form-font">
-                        <%= form.label :ringhallmarks, "Hallmarks | Important" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We're looking to create a defined list here. It'll be useful to display on the item view page, and for analysis by the data science team."></span>
-                        <%= form.text_field :ringhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
+                        <%= form.label :ringhallmarks, "Hallmarks | Required" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be useful to display on the item view page, and for analysis by the data science team."></span>
+                        <%= form.select :ringhallmarks, options_for_select([["Select One...", ""],'10K','14K','18K','24K','.900','.925','.999','None'], :selected => @item.ringhallmarks), {}, {:class => "form-control"} %>
                       </div>
                       <div class="form-group">
                         <%= form.label :ringstyle, "Source | Important" %>
@@ -1145,14 +1151,16 @@
 
                   <div class="row">
                    <div class="col-xs-6 collapse-group panel small-panel">
-                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails15">Center Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails15">Add a Stone <span class="fa fa-diamond"> </span></a>
                     <div class="collapse" id="viewdetails15">
                       <div class="col-xs-12 form-group sub-menu-margin">
                         <%= form.label :ringcstonetype, "Stone Type" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
                         <%= form.select :ringcstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Corrundum', 'Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl','Rhinestones', 'Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.ringcstonetype), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringcstoneshape, "Stone Shape" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
                         <%= form.select :ringcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.ringcstoneshape), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
@@ -1183,14 +1191,16 @@
                     </div>
                    </div>
                    <div class="col-xs-6 collapse-group panel small-panel">
-                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails16">Side Stone Attributes <span class="fa fa-diamond"> </span></a>
+                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails16">Add Another Stone <span class="fa fa-diamond"> </span></a>
                     <div class="collapse" id="viewdetails16">
                       <div class="col-xs-12 form-group sub-menu-margin">
                         <%= form.label :ringsstonetype, "Stone Type" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
                         <%= form.select :ringsstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Corrundum', 'Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.ringsstonetype), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringsstoneshape, "Stone Shape" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
                         <%= form.select :ringsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.ringsstoneshape), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
