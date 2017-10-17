@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016154658) do
+ActiveRecord::Schema.define(version: 20171017143632) do
 
   create_table "item_details", force: :cascade do |t|
     t.string "metal_type"
@@ -283,6 +283,10 @@ ActiveRecord::Schema.define(version: 20171016154658) do
     t.text "ringsstonetreatment"
     t.text "ringcstoneposition"
     t.text "ringsstoneposition"
+    t.float "ringcstonecountfinal"
+    t.float "ringsstonecountfinal"
+    t.text "ringcstonecolorgradeto"
+    t.text "ringcstoneclaritygradeto"
     t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 

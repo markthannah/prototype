@@ -1114,7 +1114,7 @@
                       <div class="form-group">
                         <%= form.label :ringstyle, "Source | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll use this as a filter on the results page, and it should be displayed on the item view page. We may also want to include this type of information in the form:<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Art Deco: Circa 1920-1930"></span>
-                        <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Asian','Native American','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
+                        <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Asian','Native American','Southwestern','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
                         <div id="ringweighttype" class="col-xs-6 form-group">
@@ -1179,9 +1179,9 @@
                         <%= form.select :ringcstonetreatment, options_for_select([["Select One...", ""],'Dyed','Heat','Irratdiated','Oiled','Other'], :selected => @item.ringcstonetreatment), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :ringcstonecount, "Stone Count" %>
+                        <%= form.label :ringcstonecountfinal, "Stone Count" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be required. Only select 2+ stone if they all have the same characteristics."></span>
-                        <%= form.number_field :ringcstonecount,in: 1..10, step: 1, class: "form-control", placeholder: "Enter #" %>
+                        <%= form.number_field :ringcstonecountfinal,in: 1..10, step: 1, class: "form-control", placeholder: "Enter #" %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringcstonecaratweight, "Carat Weight" %>
@@ -1194,15 +1194,56 @@
                           <%= form.select :ringcstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.ringcstoneclaritygrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
+                          <%= form.label :ringcstoneclaritygradeto, "to" %>
+                          <%= form.select :ringcstoneclaritygradeto, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.ringcstoneclaritygradeto), {}, {:class => "form-control"} %>
+                        </div>
+
+                        <div class="col-xs-6 form-group">
                           <%= form.label :ringcstonecolorgrade, "Color Grade" %>
-                          <%= form.select :ringcstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.ringcstonecolorgrade), {}, {:class => "form-control"} %>
+                          <%= form.select :ringcstonecolorgrade, options_for_select([["Select One...", ""],'D','E','F','G','H','I','J','K','L','M','N','R','S','Z' ], :selected => @item.ringcstonecolorgrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringcstonecolorgradeto, "to" %>
+                          <%= form.select :ringcstonecolorgradeto, options_for_select([["Select One...", ""],'D','E','F','G','H','I','J','K','L','M','N','R','S','Z' ], :selected => @item.ringcstonecolorgradeto), {}, {:class => "form-control"} %>
                         </div>
                       </div>
 
                       <div id="cgem">
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringcstonehue, "Hue" %>
-                          <%= form.select :ringcstonehue, options_for_select([["Select One...", ""],'hue1','hue2' ], :selected => @item.ringcstonehue), {}, {:class => "form-control"} %>
+                          <%= form.select :ringcstonehue, options_for_select([["Select One...", ""],
+                            'B/ Blue',
+                            'bG/ bluish Green',
+                            'bV/ bluish Violet',
+                            'G/ Green',
+                            'gB/ greenish Blue',
+                            'GB/BG/ Green-Blue or Blue-Green',
+                            'gY/ greenish Yellow',
+                            'O/ Orange',
+                            'oR/ orangy Red',
+                            'oY/ orangy Yellow',
+                            'P/ Purple',
+                            'R/ Red',
+                            'rO/ reddish-Orange',
+                            'RO/OR Red-Orange or Orange-Red',
+                            'rP/ reddish Purple',
+                            'RP/PR Red-Purple or Purple-Red',
+                            'slpR/ slightly purplish Red',
+                            'slyG/ slightly yellowish Green',
+                            'stpR/ strongly purplish Red',
+                            'styG/ strongly yellowish Green',
+                            'V/ Violet',
+                            'vB/ violetish Blue',
+                            'vP/ violetish Purple',
+                            'vslbG/ very slightly bluish Green',
+                            'vslgB/ very slightly greenish Blue',
+                            'vstbG/ very strongly bluish Green',
+                            'vstgB/ very strongly greenish Blue',
+                            'Y/ Yellow',
+                            'yG/ yellowish Green',
+                            'YG/GY/ Yellow-Green or Green-Yellow',
+                            'yO/ yellowish Orange'
+                          ],:selected => @item.ringcstonehue), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringcstonetone, "Tone" %>
@@ -1245,8 +1286,8 @@
                         <%= form.select :ringsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.ringsstoneshape), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
-                        <%= form.label :ringsstonecount, "Stone Count" %>
-                        <%= form.number_field :ringsstonecount,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Enter #" %>
+                        <%= form.label :ringsstonecountfinal, "Stone Count" %>
+                        <%= form.number_field :ringsstonecountfinal,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Enter #" %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringsstonecaratweight, "Carat Weight" %>

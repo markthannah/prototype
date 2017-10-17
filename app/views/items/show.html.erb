@@ -74,12 +74,81 @@
       </div>
     <% end %>
   </div>
-
+  <% unless @item.ringcstonetype.blank? %>
   <div class="row">
     <div class="col-xs-12 new-heading">
-      <strong class="item-description">STONE DETAILS...</strong>
+      <strong class="item-description" style="text-transform:uppercase;"><%=@item.ringcstoneposition%>  <%=@item.ringcstonetype%> DETAILS</strong>
     </div>
-  </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Count:</strong>
+      <%= @item.ringcstonecountfinal.round %>
+    </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Shape:</strong>
+      <%= @item.ringcstoneshape %>
+    </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Carat Weight:</strong>
+      <%= @item.ringcstonecaratweight %>
+    </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Treatment:</strong>
+      <%= @item.ringcstonetreatment %>
+    </div>
+    <% if @item.ringcstonetype == "Diamond" %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Color Grade:</strong>
+        <%= @item.ringcstonecolorgrade %>
+        <% unless @item.ringcstonecolorgradeto.blank? %>
+            - <%= @item.ringcstonecolorgradeto %>
+          <% else %>
+          <% end %>
+      </div>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Clarity Grade:</strong>
+        <%= @item.ringcstoneclaritygrade %>
+        <% unless @item.ringcstoneclaritygradeto.blank? %>
+            - <%= @item.ringcstoneclaritygradeto %>
+          <% else %>
+          <% end %>
+      </div>
+      <% else %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Hue:</strong>
+        <%= @item.ringcstonehue %>
+      </div>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Tone:</strong>
+        <%= @item.ringcstonetone %>
+      </div>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Saturation:</strong>
+        <%= @item.ringcstonesaturation %>
+      </div>
+      <% end %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Dimensions:</strong>
+        <%= @item.ringcstonedimensionl %> mm x <%= @item.ringcstonedimensionw %> mm
+          <% unless @item.ringcstonedepth.blank? %>
+            x <%= @item.ringcstonedepth %>mm
+          <%end%>
+      </div>
+      <% unless @item.ringcstonecaratweight.blank? %>
+        <div class="col-xs-12 item-details">
+          <strong class="item-description">Carat Weight:</strong>
+          <%= @item.ringcstonecaratweight.round %>
+          <% if @item.ringcstonecountfinal > 1 %>
+            ctw
+          <% else %>
+            ct
+          <% end %>
+        </div>
+      <% else %>
+      <% end %>
+      </div>
+      <% else %>
+      <% end %>
+
 
   <% unless @item.ringgeodisclaimer.blank? %>
   <div class="row">
