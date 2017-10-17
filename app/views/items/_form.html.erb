@@ -1108,8 +1108,8 @@
                       </div>
                       <div class="form-group form-font">
                         <%= form.label :ringhallmarks, "Hallmarks | Required" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be useful to display on the item view page, and for analysis by the data science team."></span>
-                        <%= form.select :ringhallmarks, options_for_select([["Select One...", ""],'10K','14K','18K','24K','.900','.925','.999','Unmarked'], :selected => @item.ringhallmarks), {}, {:class => "form-control"} %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Needs to be open. To varied to select."></span>
+                        <%= form.text_field :ringhallmarks, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
                       <div class="form-group">
                         <%= form.label :ringstyle, "Source | Important" %>
