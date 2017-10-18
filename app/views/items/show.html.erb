@@ -41,7 +41,15 @@
 
     <% if @item.category == "Rings" %>
 
+    <% unless @item.ringdesigner.blank? %>
     <div class="col-xs-12">
+      <strong class="item-description">Ring Designer:</strong>
+      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Designer is Important and should be displayed, if present."></span>
+      <%= @item.ringdesigner %>
+    </div>
+    <% else %>
+    <% end %>
+    <div class="col-xs-12 item-details">
       <strong class="item-description">Metal Type:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Required, and will always display. This is a multiselect field, so they'll appear comma separated here."></span>
       <%= @item.ringmetaltype.join(", ") %>
@@ -61,11 +69,11 @@
       </div>
     <% else %>
     <% end %>
-    <% unless @item.ringdesigner.blank? %>
+    <% unless @item.ringwidth.blank? %>
       <div class="col-xs-12 item-details">
-        <strong class="item-description">Ring Designer:</strong>
-        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Designer is Important and should be displayed, if present."></span>
-        <%= @item.ringdesigner %>
+        <strong class="item-description">Ring Width:</strong>
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Ring width is used infrequently, but when it is, it should appear with decimals out to the hundredths place."></span>
+        <%= number_with_precision(@item.ringsize, precision: 2) %>
       </div>
     <% else %>
     <% end %>
@@ -74,6 +82,14 @@
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Required, and always display whether present or not. This should be an open text field. Selections are too varied, and even when we stand to learn from consistent marks (e.g., 14K), the data can still be captured in Metal Type."></span>
       <%= @item.ringhallmarks %>
     </div>
+    <% unless @item.ringengravedmarks.blank? %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Personalizations:</strong>
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is an open text field that appears infrequently."></span>
+        <%= @item.ringengravedmarks %>
+      </div>
+    <% else %>
+    <% end %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Total Weight:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Important, and display if present. If the weight is .ozt, storage and the view has to take the decimal out to the thousandths place, even if the final digit is a 0.</br>If the weight is .dwt, storage and the view has to take the decimal out to the hundreths place, even if the final digit is a 0."></span>
@@ -86,6 +102,9 @@
       <% end %>
     </div>
   </div>
+
+  <!---STONE 1--------------------------------------------------------------------------------------->
+
   <% unless @item.ringcstonetype.blank? %>
   <div class="row">
     <div class="col-xs-12 new-heading">
@@ -115,11 +134,6 @@
       </div>
     <% else %>
     <% end %>
-    <div class="col-xs-12 item-details">
-      <strong class="item-description">Shape:</strong>
-      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required and always display."></span>
-      <%= @item.ringcstoneshape %>
-    </div>
     <% unless @item.ringcstonetreatment.blank? %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Treatment:</strong>
@@ -128,6 +142,11 @@
       </div>
     <% else %>
     <% end %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Shape:</strong>
+      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required and always display."></span>
+      <%= @item.ringcstoneshape %>
+    </div>
     <% if @item.ringcstonetype == "Diamond" %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Color Grade:</strong>
@@ -148,21 +167,32 @@
           <% end %>
       </div>
       <% else %>
+
+      <% unless @item.ringcstonehue.blank? %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Hue:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Notice how the code appears first for quick access by Gemology in the actual form. In this example, I'm only displaying the characters that follow the first forward slash, which is more user friendly."></span>
         <%= @item.ringcstonehue.partition('/').last %>
       </div>
+      <% else %>
+      <% end %>
+      <% unless @item.ringcstonetone.blank? %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Tone:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Same as Hue, display?"></span>
         <%= @item.ringcstonetone.partition('/').last %>
       </div>
+      <% else %>
+      <% end %>
+      <% unless @item.ringcstonesaturation.blank? %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Saturation:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Same as Hue, display?"></span>
         <%= @item.ringcstonesaturation.partition('/').last %>
       </div>
+      <% else %>
+      <% end %>
+
       <% end %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Dimensions:</strong>
@@ -175,6 +205,7 @@
             x <%= number_with_precision(@item.ringcstonedimensionl, precision: 2)%> mm
           <%end%>
       </div>
+
       <% unless @item.ringcstonecaratweight.blank? %>
         <div class="col-xs-12 item-details">
           <strong class="item-description">Carat Weight:</strong>
@@ -186,12 +217,24 @@
             ct
           <% end %>
         </div>
+        <% unless @item.ringcstonegemnotes.blank? %>
+          <div class="col-xs-12 item-details">
+            <strong class="item-description">Gemologist Note:</strong>
+            <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is an open text field that appears infrequently in case the gemologist needs to point out something specific."></span>
+            <%= @item.ringcstonegemnotes %>
+          </div>
+        <% else %>
+        <% end %>
       <% else %>
       <% end %>
       </div>
       <% else %>
       <% end %>
 
+<!---STONE 2--------------------------------------------------------------------------------------->
+
+
+<!---STONE DISCLAIMERS----------------------------------------------------------------------------->
 
   <% unless @item.ringgeodisclaimer.blank? %>
   <div class="row">
@@ -222,8 +265,6 @@
   </div>
   <% else %>
   <% end %>
-
-
 
   <% else %>
   <% end %>
