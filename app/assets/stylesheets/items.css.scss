@@ -137,3 +137,11 @@ label {
 .new-heading {
   padding-top: 30px;
 }
+
+.tooltip {
+  font-size: 14px;
+}
+
+.tooltip .tooltip-inner {
+  min-width: 250px;
+}

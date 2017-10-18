@@ -48,7 +48,7 @@
     </div>
     <% unless @item.ringothermetal.blank? %>
       <div class="col-xs-12 item-details">
-        <strong class="item-description">Secondary Metal Type:</strong>
+        <strong class="item-description">Accent Metal Type:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Important and display? Not sure if this is a thing yet, but it's a multiselect, if so."></span>
         <%= @item.ringothermetal.join(", ") %>
       </div>
@@ -71,7 +71,7 @@
     <% end %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Hallmarks:</strong>
-      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Important, and display if present. This should be an open text field. Selections are too varied, and even when we stand to learn from consistent marks (e.g., 14K), the data can still be captured in Metal Type."></span>
+      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Required, and always display whether present or not. This should be an open text field. Selections are too varied, and even when we stand to learn from consistent marks (e.g., 14K), the data can still be captured in Metal Type."></span>
       <%= @item.ringhallmarks %>
     </div>
     <div class="col-xs-12 item-details">
@@ -85,25 +85,36 @@
         <%= @item.ringweighttype %>
       <% end %>
     </div>
-    <% unless @item.ringstyle.blank? %>
-      <div class="col-xs-12 item-details">
-        <strong class="item-description">Style:</strong>
-        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Important. This will replace the connection that some of these items have to a second Art category. Not sure if it makes sense to put this in the item view or not."></span>
-        <%= @item.ringstyle %>
-      </div>
-    <% end %>
   </div>
   <% unless @item.ringcstonetype.blank? %>
   <div class="row">
     <div class="col-xs-12 new-heading">
-      <strong class="item-description" style="text-transform:uppercase;"><%=@item.ringcstoneposition%>  <%=@item.ringcstonetype%> DETAILS</strong>
-      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Notice how this label combines the stone type and its position. Is this enough, or should stone type also display in the bulleted list?"></span>
+      <strong class="item-description" style="text-transform:uppercase;"><%=@item.ringcstoneposition%>
+        <% if (@item.ringcstonecountfinal > 1 && @item.ringcstonetype != 'Diamond')%>
+          STONES
+         <% elsif (@item.ringcstonecountfinal == 1 && @item.ringcstonetype != 'Diamond')%>
+          STONE
+        <% elsif (@item.ringcstonecountfinal > 1 && @item.ringcstonetype == 'Diamond')%>
+          DIAMONDS
+        <% elsif (@item.ringcstonecountfinal == 1 && @item.ringcstonetype == 'Diamond')%>
+          DIAMOND
+        <% end %>
+      </strong>
+      <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Notice how this label combines the stone's position and the word 'Stone' or 'Stones' if the count is greater than one. Also, notice how 'Diamond' or 'Diamonds' appears in this heading depending on the stone count and type. See below for how this also affects whether type is listed in the template."></span>
     </div>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Count:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Count will always be Required and display on the Item View Page, keeping in mind that when this value is greater than 1, that all stones with this type and in this position (center, side, or accent) have the exact same qualities listed below. If any of these characteristics vary, the stone will be added in a separate template."></span>
       <%= @item.ringcstonecountfinal.round %>
     </div>
+    <% if @item.ringcstonetype != "Diamond" %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Type:</strong>
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Type will only display if the stone type is not Diamond. It's hidden if Diamond is the type, since it's put in the heading."></span>
+        <%= @item.ringcstonetype.join(", ") %>
+      </div>
+    <% else %>
+    <% end %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Shape:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required and always display."></span>
@@ -139,32 +150,35 @@
       <% else %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Hue:</strong>
-        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Notice how the code appears first for quick access by Gemology. Should Hue display on the Item View Page? If so, should the code be striped out of the beginning of this text?"></span>
-        <%= @item.ringcstonehue %>
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Notice how the code appears first for quick access by Gemology in the actual form. In this example, I'm only displaying the characters that follow the first forward slash, which is more user friendly."></span>
+        <%= @item.ringcstonehue.partition('/').last %>
       </div>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Tone:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Same as Hue, display?"></span>
-        <%= @item.ringcstonetone %>
+        <%= @item.ringcstonetone.partition('/').last %>
       </div>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Saturation:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required. Same as Hue, display?"></span>
-        <%= @item.ringcstonesaturation %>
+        <%= @item.ringcstonesaturation.partition('/').last %>
       </div>
       <% end %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Dimensions:</strong>
-        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will always be Required and display if the ring includes a stone. Dimensions will be taken out to a third number if a depth is present. Otherwise, only L x W will display."></span>
-        <%= @item.ringcstonedimensionl %> mm x <%= @item.ringcstonedimensionw %> mm
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will always be Required and display if the ring includes a stone. If only a diameter is measured, just the first dimension will display. Alternatively, if a length and width are measured, two dimensions will appear. If a depth is measured, L x W x D will display. Measurements should always display up to the hundreths place."></span>
+        <%= number_with_precision(@item.ringcstonedimensionl, precision: 2) %> mm
+          <% unless @item.ringcstonedimensionw.blank? %>
+            x <%= number_with_precision(@item.ringcstonedimensionl, precision: 2)%> mm
+            <%end%>
           <% unless @item.ringcstonedepth.blank? %>
-            x <%= @item.ringcstonedepth %>mm
+            x <%= number_with_precision(@item.ringcstonedimensionl, precision: 2)%> mm
           <%end%>
       </div>
       <% unless @item.ringcstonecaratweight.blank? %>
         <div class="col-xs-12 item-details">
           <strong class="item-description">Carat Weight:</strong>
-          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important, not Required, but it should always display if the value is present. Additionally, notice how 'ct' appears if the template includes a count of 1 stone. It changes to 'ctw' if it's 2 or more."></span>
+          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Important for everything besides Diamonds, which it's required for. It should always display if the value is present. Additionally, notice how 'ct' appears if the template includes a count of 1 stone. It changes to 'ctw' if it's 2 or more."></span>
           <%= number_with_precision(@item.ringcstonecaratweight, precision: 2) %>
           <% if @item.ringcstonecountfinal > 1 %>
             ctw
