@@ -1044,7 +1044,7 @@
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringwidth, "Ring Width | Important" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is rarely set. Primarily is cases where the rize size and width vary more signnificantly."></span>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is rarely set. Primarily is cases where bands and rings that have thicker shanks, and ring size doesn't tell the entire story."></span>
                           <%= form.number_field :ringwidth,in: 1.0..10.0, step: 0.25, class: "form-control", placeholder: "Enter a Ring Width" %>
                         </div>
                       </div>
@@ -1293,10 +1293,10 @@
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringcstonedimensiontype, "Dimension Type | Required" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Dimension type will either be a range of two values, or L x W x H."></span>
-                        <%= form.select :ringcstonedimensiontype, options_for_select([["Select One...", ""],['Precise','Precise'],['Range','Range']], :selected => @item.ringcstonedimensiontype), {}, {:class => "form-control"} %>
+                        <%= form.select :ringcstonedimensiontype, options_for_select([["Select One...", ""],['Single','Single'],['Range','Range']], :selected => @item.ringcstonedimensiontype), {}, {:class => "form-control"} %>
                       </div>
 
-                      <div id="ringprecisedim" class="">
+                      <div id="ringcstonesingledim" class="">
                         <div class="col-xs-4 form-group">
                           <%= form.label :ringcstonedimensionl, "Dimensions" %>
                           <%= form.number_field :ringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "L" %>
@@ -1314,15 +1314,35 @@
                         </div>
                       </div>
 
-                      <div id= "ringrangedim" class="">
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringcstonedimensionl, "Dimensions" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is for when a range of lengths (diameters) is provided for multiple stones."></span>
-                          <%= form.number_field :ringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "From" %>
+                      <div id= "ringcstonerange" class="">
+                        <div class="col-xs-4 form-group">
+                          <%= form.label :ringcstonedimensionl, "From" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
+                          <%= form.number_field :ringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "L" %>
                         </div>
-                        <div class="col-xs-6 form-group">
+                        <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.number_field :ringcstonedimensionwend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "To" %>
+                            <%= form.number_field :ringcstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "W" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.number_field :ringcstonedepth,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "D" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <%= form.label :ringcstonedimensionl, "To" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
+                          <%= form.number_field :ringcstonedimensionlend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "L" %>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.number_field :ringcstonedimensionwend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "W" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.number_field :ringcstonedimensiondend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "D" %>
                           </div>
                         </div>
                       </div>
@@ -1766,14 +1786,14 @@ $(document).ready(function () {
 function toggleRingdimension() {
 
     if ($("#item_ringcstonedimensiontype").val() === "Range")
-        $("#ringrangedim").show();
+        $("#ringcstonerange").show();
     else
-        $("#ringrangedim").hide();
+        $("#ringcstonerange").hide();
 
-    if ($("#item_ringcstonedimensiontype").val() === "Precise")
-        $("#ringprecisedim").show();
+    if ($("#item_ringcstonedimensiontype").val() === "Single")
+        $("#ringcstonesingledim").show();
     else
-        $("#ringprecisedim").hide();
+        $("#ringcstonesingledim").hide();
 
 }
 
