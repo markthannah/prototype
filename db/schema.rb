@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018183723) do
+ActiveRecord::Schema.define(version: 20171018204533) do
 
   create_table "item_details", force: :cascade do |t|
     t.string "metal_type"
@@ -217,16 +217,16 @@ ActiveRecord::Schema.define(version: 20171018183723) do
     t.float "ringcstonecount"
     t.text "ringcstonetype"
     t.text "ringcstoneshape"
-    t.float "ringcstonedimensionw"
-    t.float "ringcstonedimensionl"
+    t.text "ringcstonedimensionw"
+    t.text "ringcstonedimensionl"
     t.text "ringcstonecolorgrade"
     t.text "ringcstoneclaritygrade"
     t.float "ringcstonecaratweight"
     t.float "ringsstonecount"
     t.text "ringsstonetype"
     t.text "ringsstoneshape"
-    t.float "ringsstonedimensionw"
-    t.float "ringsstonedimensionl"
+    t.text "ringsstonedimensionw"
+    t.text "ringsstonedimensionl"
     t.text "ringsstonecolorgrade"
     t.text "ringsstoneclaritygrade"
     t.float "ringsstonecaratweight"
@@ -277,8 +277,8 @@ ActiveRecord::Schema.define(version: 20171018183723) do
     t.text "ringsstonehue"
     t.text "ringsstonetone"
     t.text "ringsstonesaturation"
-    t.float "ringsstonedepth"
-    t.float "ringcstonedepth"
+    t.text "ringsstonedepth"
+    t.text "ringcstonedepth"
     t.text "ringcstonetreatment"
     t.text "ringsstonetreatment"
     t.text "ringcstoneposition"
@@ -293,14 +293,16 @@ ActiveRecord::Schema.define(version: 20171018183723) do
     t.float "ringwidth"
     t.text "ringcstonegemnotes"
     t.text "ringsstonegemnotes"
-    t.float "ringcstonedimensionwend"
-    t.float "ringsstonedimensionwend"
+    t.text "ringcstonedimensionwend"
+    t.text "ringsstonedimensionwend"
     t.text "ringcstonedimensiontype"
     t.text "ringsstonedimensiontype"
-    t.float "ringcstonedimensionlend"
-    t.float "ringsstonedimensionlend"
-    t.float "ringcstonedimensiondend"
-    t.float "ringsstonedimensiondend"
+    t.text "ringcstonedimensionlend"
+    t.text "ringsstonedimensionlend"
+    t.text "ringcstonedimensiondend"
+    t.text "ringsstonedimensiondend"
+    t.boolean "ringcstonedimensionest"
+    t.boolean "ringsstonedimensionest"
     t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 

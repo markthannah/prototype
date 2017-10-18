@@ -226,6 +226,10 @@
           <% unless @item.ringcstonedimensiondend.blank? %>
             x <%= number_with_precision(@item.ringcstonedimensiondend, precision: 2)%> mm
           <%end%>
+          <% unless @item.ringcstonedimensionest.blank? %>
+          - (estimate)
+          <% else %>
+          <% end %>
         </div>
       <% else %>
       <% end %>

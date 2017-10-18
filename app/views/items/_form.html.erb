@@ -1299,17 +1299,17 @@
                       <div id="ringcstonesingledim" class="">
                         <div class="col-xs-4 form-group">
                           <%= form.label :ringcstonedimensionl, "Dimensions" %>
-                          <%= form.number_field :ringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "L" %>
+                          <%= form.text_field :ringcstonedimensionl, class: "form-control", placeholder: "Required Attribute" %>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="tooltip-only">
                             <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
-                            <%= form.number_field :ringcstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "W" %>
+                            <%= form.text_field :ringcstonedimensionw, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.number_field :ringcstonedepth,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "D" %>
+                            <%= form.text_field :ringcstonedepth, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                       </div>
@@ -1318,35 +1318,38 @@
                         <div class="col-xs-4 form-group">
                           <%= form.label :ringcstonedimensionl, "From" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
-                          <%= form.number_field :ringcstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "L" %>
+                          <%= form.text_field :ringcstonedimensionl, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.number_field :ringcstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "W" %>
+                            <%= form.text_field :ringcstonedimensionw, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.number_field :ringcstonedepth,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "D" %>
+                            <%= form.text_field :ringcstonedepth, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                         <div class="col-xs-4 form-group">
                           <%= form.label :ringcstonedimensionl, "To" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
-                          <%= form.number_field :ringcstonedimensionlend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "L" %>
+                          <%= form.text_field :ringcstonedimensionlend, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.number_field :ringcstonedimensionwend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "W" %>
+                            <%= form.text_field :ringcstonedimensionwend, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.number_field :ringcstonedimensiondend,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "D" %>
+                            <%= form.text_field :ringcstonedimensiondend, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                       </div>
-
+                      <div class="col-xs-12 form-group">
+                        <%= form.check_box :ringcstonedimensionest %>
+                        <%= form.label :ringcstonedimensionest, "Check if any dimensions estimated." %><br>
+                      </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringcstonegemnotes, "Gemologist Notes | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is only used in situations where the gemologist wants to point out something specific about the stone."></span>
