@@ -1027,7 +1027,6 @@
                     </div>
                 </div>
 
-              <% if @item.category == "Rings" %>
                 <div id="fineringdetails" class="jewelryattributes">
                   <div class="panel panel-default">
                     <div class="panel-heading">Fine Ring Details</div>
@@ -1434,8 +1433,7 @@
                      </div>
                    </div>
                  </div>
-                 <% else %>
-                 <% end %>
+
 <!---WATCHES--------------------------------------------------------------------------------------->
                 <div id="watchdetails">
                   <div class="panel panel-default">
@@ -1693,30 +1691,26 @@ $(document).ready(function () {
     });
 
 });
+
 function toggleFields() {
 
-    if (($("#item_ringquality").val() === "Fine")
-        &&
-        ($("#item_category").val() === "Rings"))
-        $("#fineringdetails").show();
-    else
-        $("#fineringdetails").hide();
+  if ($("#item_ringquality").val() === "Fine")
+      $("#fineringdetails").show();
+  else
+      $("#fineringdetails").hide();
 
-    if (($("#item_ringquality").val() === "Fashion")
-        &&
-        ($("#item_category").val() === "Rings"))
-        $("#fashionringdetails").show();
-    else
-        $("#fashionringdetails").hide();
+  if ($("#item_ringquality").val() === "Fashion")
+      $("#fashionringdetails").show();
+  else
+      $("#fashionringdetails").hide();
 
-    if (($("#item_ringquality").val() === "Costume")
-        &&
-        ($("#item_category").val() === "Rings"))
-        $("#costumeringdetails").show();
-    else
-        $("#costumeringdetails").hide();
+  if ($("#item_ringquality").val() === "Costumer")
+      $("#costumeringdetails").show();
+  else
+      $("#costumeringdetails").hide();
 
 }
+
 
 $(document).ready(function () {
     toggleRingweight();
