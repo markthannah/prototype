@@ -194,6 +194,8 @@
       <% end %>
 
       <% end %>
+
+      <% if @item.ringcstonedimensiontype == "Precise" %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Dimensions:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will always be Required and display if the ring includes a stone. If only a diameter is measured, just the first dimension will display. Alternatively, if a length and width are measured, two dimensions will appear. If a depth is measured, L x W x D will display. Measurements should always display up to the hundreths place."></span>
@@ -204,7 +206,19 @@
           <% unless @item.ringcstonedepth.blank? %>
             x <%= number_with_precision(@item.ringcstonedimensionl, precision: 2)%> mm
           <%end%>
-      </div>
+        </div>
+      <% elsif @item.ringcstonedimensiontype == "Range" %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Dimensions:</strong>
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will always be Required, but there are two different ways this will display if the ring includes multiple stones, all listed within this one template. If a Range is selected, two dimensions will be specified - a high and a low number. If Precise is selected, and only a diameter is measured, just the first dimension will display. Alternatively, if a length and width are measured, two dimensions will appear. If a depth is measured, L x W x D will display. Measurements should always display up to the hundreths place."></span>
+        <%= number_with_precision(@item.ringcstonedimensionl, precision: 2) %> mm
+          <% unless @item.ringcstonedimensionw.blank? %>
+            to <%= number_with_precision(@item.ringcstonedimensionwend, precision: 2)%> mm
+          <%end%>
+        </div>
+      <% else %>
+      <% end %>
+
 
       <% unless @item.ringcstonecaratweight.blank? %>
         <div class="col-xs-12 item-details">
