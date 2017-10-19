@@ -74,14 +74,6 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <%= form.label :braceletclosure, "Bracelet Closure Type" %>
-                          <%= form.select :braceletclosure, options_for_select([["Select One...", ""],'Spring Ring', 'Lobster', 'Barrel', 'Magnetic', 'Fishhook', 'Toggle', 'Slide Lock', 'None'], :selected => @item.braceletclosure), {}, {:class => "form-control"} %>
-                        </div>
-                        <div class="form-group form-font">
-                          <%= form.label :bracelethallmarks, "Hallmarks" %><br>
-                          <%= form.text_field :bracelethallmarks, class: "form-control", placeholder: "Optional Attribute" %>
-                        </div>
-                        <div class="form-group">
                           <%= form.label :era, "Style" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Art Deco: Circa 1920-1930"></span>
                           <%= form.select :braceletstyle, options_for_select([["Select One...", ""],'Asian','Native American','Georgian','Victorian','Art Nouveau','Edwardian','Retro','Art Deco', 'None'], :selected => @item.braceletstyle), {}, {:class => "form-control"} %>
