@@ -1064,9 +1064,9 @@
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group">
-                          <%= form.label :ringmetaltypen, "Primary Metal Type(s) | Required" %>
+                          <%= form.label :ringmetaltypeagain , "Primary Metal Type(s) | Required" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is a mult-select meant to capture all metal types used as a primariy materials for the ring. All will continue to be used in the materials filter, and display on the item page."></span>
-                          <%= form.select :ringmetaltypen, options_for_select([
+                          <%= form.select :ringmetaltypeagain, options_for_select([
                             '10K White Gold',
                             '14K White Gold',
                             '18K White Gold',
@@ -1089,7 +1089,7 @@
                             'Platinum',
                             'Platinum/Palladium',
                             'Other'],
-                          @item.ringmetaltypen), {selected: @item },{:multiple => true, :class => "form-control"} %>
+                          @item.ringmetaltypeagain), {selected: @item },{:multiple => true, :class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringothermetal, "Accent Metal Type(s) | Important" %>
