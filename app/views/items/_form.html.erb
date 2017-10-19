@@ -1298,18 +1298,18 @@
 
                       <div id="ringcstonesingledim" class="">
                         <div class="col-xs-4 form-group">
-                          <%= form.label :ringcstonedimensionl, "Dimensions" %>
-                          <%= form.text_field :ringcstonedimensionl, class: "form-control", placeholder: "Required Attribute" %>
+                          <%= form.label :ringcstonedimensionlsingle, "Dimensions" %>
+                          <%= form.text_field :ringcstonedimensionlsingle, class: "form-control", placeholder: "Required Attribute" %>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="tooltip-only">
                             <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
-                            <%= form.text_field :ringcstonedimensionw, class: "form-control", placeholder: "Optional Attribute" %>
+                            <%= form.text_field :ringcstonedimensionwsingle, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                         <div class="col-xs-4 form-group">
                           <div class="no-label-field">
-                            <%= form.text_field :ringcstonedepth, class: "form-control", placeholder: "Optional Attribute" %>
+                            <%= form.text_field :ringcstonedimensiondsingle, class: "form-control", placeholder: "Optional Attribute" %>
                           </div>
                         </div>
                       </div>
@@ -1317,7 +1317,7 @@
                       <div id= "ringcstonerange" class="">
                         <div class="col-xs-4 form-group">
                           <%= form.label :ringcstonedimensionl, "From" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required and changes to diameter when it's by iteself. Width and Depth are Important."></span>
                           <%= form.text_field :ringcstonedimensionl, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="col-xs-4 form-group">
@@ -1332,7 +1332,7 @@
                         </div>
                         <div class="col-xs-4 form-group">
                           <%= form.label :ringcstonedimensionl, "To" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required and changes to diameter when it's by iteself. Width and Depth are Important."></span>
                           <%= form.text_field :ringcstonedimensionlend, class: "form-control", placeholder: "Optional Attribute" %>
                         </div>
                         <div class="col-xs-4 form-group">
@@ -1348,7 +1348,7 @@
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.check_box :ringcstonedimensionest %>
-                        <%= form.label :ringcstonedimensionest, "Check if any dimensions estimated." %><br>
+                        <%= form.label :ringcstonedimensionest, "Check if any dimensions estimated" %><br>
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringcstonegemnotes, "Gemologist Notes | Important" %>
@@ -1357,47 +1357,199 @@
                       </div>
                     </div>
                    </div>
+ <!---RING SSTONE--------------------------------------------------------------------------------------->
 
                    <div class="col-xs-6 collapse-group panel small-panel">
                     <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#viewdetails16">Second Stone <span class="fa fa-diamond"> </span></a>
                     <div class="collapse" id="viewdetails16">
-                      <div class="col-xs-12 form-group sub-menu-margin">
-                        <%= form.label :ringsstonetype, "Stone Type" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
-                        <%= form.select :ringsstonetype, options_for_select([["Select One...", ""],'Abalone Shell','Amethyst','Alexandrite','Aquamarine','Black Onyx','Citrine','Corrundum', 'Diamond','Emerald','Garent','Glass','Lapis Lazuli','Mother of Pearl','Onyz','Opal','Peridot', 'Pearl', 'Rhinestones','Ruby', 'Sapphire', 'Tanzanite','Topaz','Turquoise'], :selected => @item.ringsstonetype), {}, {:class => "form-control"} %>
+
+                      <div id ="ringsstonetype" class="col-xs-12 form-group sub-menu-margin">
+                        <%= form.label :ringsstonetype, "Stone Type | Required" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list. It needs to support multi select in situations where stones are grouped into the same template, even though they're different."></span>
+                        <%= form.select :ringsstonetype, options_for_select([
+                        ['Select One...', ''],
+                        ['Diamond','Diamond'],
+                        ['Ruby','Ruby'],
+                        ['Saphire','Saphire']],
+                        @item.ringsstonetype), {selected: @item },{:multiple => true, :class => "form-control"} %>
                       </div>
                       <div class="col-xs-12 form-group">
-                        <%= form.label :ringsstoneshape, "Stone Shape" %>
+                        <%= form.label :ringsstoneposition, "Stone Position | Required" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Typically, Center will be selected here."></span>
+                        <%= form.select :ringsstoneposition, options_for_select([["Select One...", ""],'Center','Side','Accent'], :selected => @item.ringsstoneposition), {}, {:class => "form-control"} %>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :ringsstoneshape, "Stone Shape | Required" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
                         <%= form.select :ringsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.ringsstoneshape), {}, {:class => "form-control"} %>
                       </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :ringsstonetreatment, "Treatment | Required" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll probably want to add more here since this is Required. This should also have an option to enter a value on the fly for display in the view."></span>
+                        <%= form.select :ringsstonetreatment, options_for_select([["Select One...", ""],'Dyed','Heat','Irradiated','Oiled','None','Other'], :selected => @item.ringsstonetreatment), {}, {:class => "form-control"} %>
+                      </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringsstonecountfinal, "Stone Count" %>
-                        <%= form.number_field :ringsstonecountfinal,in: 1.0..10.0, step: 1, class: "form-control", placeholder: "Enter #" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required. Only select 2+ stones if they all have the same characteristics."></span>
+                        <%= form.number_field :ringsstonecountfinal,in: 1..10, step: 1, class: "form-control", placeholder: "Enter #" %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringsstonecaratweight, "Carat Weight" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Important, but Required for Diamonds. Carat weight must always save up to the hundreths place value."></span>
                         <%= form.number_field :ringsstonecaratweight,in: 0.1..10.0, step: 0.05, class: "form-control", placeholder: "Enter ctw" %>
                       </div>
 
                       <div id="sdiamond">
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringsstoneclaritygrade, "Clarity Grade" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required for Diamonds only. A single lower value, or a lower and upper value can be selected. The form should validate against selected a higher grade first, followed by a lower value."></span>
                           <%= form.select :ringsstoneclaritygrade, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.ringsstoneclaritygrade), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :ringsstonecolorgrade, "Color Grade" %>
-                          <%= form.select :ringsstonecolorgrade, options_for_select([["Select One...", ""],'D-E-F','G-H-I-J','K-L-M','N-R','S-Z' ], :selected => @item.ringsstonecolorgrade), {}, {:class => "form-control"} %>
+                          <%= form.label :ringsstoneclaritygradeto, "to" %>
+                          <%= form.select :ringsstoneclaritygradeto, options_for_select([["Select One...", ""],'FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3' ], :selected => @item.ringsstoneclaritygradeto), {}, {:class => "form-control"} %>
+                        </div>
+
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringsstonecolorgrade, "Color Grade " %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required for Diamonds only. A single lower value, or a lower and upper value can be selected. Same as Grade, validate lower first, higher last."></span>
+                          <%= form.select :ringsstonecolorgrade, options_for_select([["Select One...", ""],'D','E','F','G','H','I','J','K','L','M','N','R','S','Z' ], :selected => @item.ringsstonecolorgrade), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringsstonecolorgradeto, "to" %>
+                          <%= form.select :ringsstonecolorgradeto, options_for_select([["Select One...", ""],'D','E','F','G','H','I','J','K','L','M','N','R','S','Z' ], :selected => @item.ringsstonecolorgradeto), {}, {:class => "form-control"} %>
                         </div>
                       </div>
-                      <div class="col-xs-6 form-group">
-                        <%= form.label :ringsstonedimensionl, "Dimensions (mm)" %>
-                        <%= form.number_field :ringsstonedimensionl,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Length (mm)" %>
-                      </div>
-                      <div class="col-xs-6 form-group">
-                        <div class="no-label-field">
-                          <%= form.number_field :ringsstonedimensionw,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Width (mm)" %>
+
+                      <div id="sgem">
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringsstonehue, "Hue" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Important for stones other than Diamonds."></span>
+                          <%= form.select :ringsstonehue, options_for_select([["Select One...", ""],
+                            'B/Blue',
+                            'bG/Bluish Green',
+                            'bV/Bluish Violet',
+                            'G/Green',
+                            'gB/Greenish Blue',
+                            'GB/BG/Green-Blue or Blue-Green',
+                            'gY/Greenish Yellow',
+                            'O/Orange',
+                            'oR/Orangy Red',
+                            'oY/Orangy Yellow',
+                            'P/Purple',
+                            'R/Red',
+                            'rO/Reddish-Orange',
+                            'RO/OR Red-Orange or Orange-Red',
+                            'rP/reddish Purple',
+                            'RP/PR Red-Purple or Purple-Red',
+                            'slpR/Slightly Purplish Red',
+                            'slyG/Slightly Yellowish Green',
+                            'stpR/Strongly Purplish Red',
+                            'styG/Strongly Yellowish Green',
+                            'V/Violet',
+                            'vB/Violetish Blue',
+                            'vP/Violetish Purple',
+                            'vslbG/Very Slightly Bluish Green',
+                            'vslgB/Very Slightly Greenish Blue',
+                            'vstbG/Very Strongly Bluish Green',
+                            'vstgB/Very Strongly Greenish Blue',
+                            'Y/Yellow',
+                            'yG/Yellowish Green',
+                            'YG/GY/Yellow-Green or Green-Yellow',
+                            'yO/Yellowish Orange'
+                          ],:selected => @item.ringsstonehue), {}, {:class => "form-control"} %>
                         </div>
+                        <div class="col-xs-6 form-group">
+                          <%= form.label :ringsstonetone, "Tone" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Important for stones other than Diamonds."></span>
+                          <%= form.select :ringsstonetone, options_for_select([["Select One...", ""],
+                            '2/Very Light',
+                            '3/Light',
+                            '4/Medium Light',
+                            '5/Medium',
+                            '6/Medium Dark',
+                            '7/Dark',
+                            '8/Very Dark'
+                            ], :selected => @item.ringsstonetone), {}, {:class => "form-control"} %>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                          <%= form.label :ringsstonesaturation, "Saturation" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Important for stones other than Diamonds."></span>
+                          <%= form.select :ringsstonesaturation, options_for_select([["Select One...", ""],
+                            '1/Brownish/Grayish',
+                            '2/Slightly Brownish/Grayish',
+                            '3/Very Slightly Brownish/Grayish',
+                            '4/Moderately Strong',
+                            '5/Strong',
+                            '6/Vivid'
+                            ], :selected => @item.ringsstonesaturation), {}, {:class => "form-control"} %>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :ringsstonedimensiontype, "Dimension Type | Required" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Dimension type will either be a range of two values, or L x W x H."></span>
+                        <%= form.select :ringsstonedimensiontype, options_for_select([["Select One...", ""],['Single','Single'],['Range','Range']], :selected => @item.ringsstonedimensiontype), {}, {:class => "form-control"} %>
+                      </div>
+
+                      <div id="ringsstonesingledim" class="">
+                        <div class="col-xs-4 form-group">
+                          <%= form.label :ringsstonedimensionlsingle, "Dimensions" %>
+                          <%= form.text_field :ringsstonedimensionlsingle, class: "form-control", placeholder: "Required Attribute" %>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="tooltip-only">
+                            <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length and Width are Required? Depth is Important?"></span>
+                            <%= form.text_field :ringsstonedimensionwsingle, class: "form-control", placeholder: "Optional Attribute" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.text_field :ringsstonedimensiondsingle, class: "form-control", placeholder: "Optional Attribute" %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id= "ringsstonerange" class="">
+                        <div class="col-xs-4 form-group">
+                          <%= form.label :ringsstonedimensionl, "From" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required and changes to diameter when it's by iteself. Width and Depth are Important."></span>
+                          <%= form.text_field :ringsstonedimensionl, class: "form-control", placeholder: "Optional Attribute" %>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.text_field :ringsstonedimensionw, class: "form-control", placeholder: "Optional Attribute" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.text_field :ringsstonedepth, class: "form-control", placeholder: "Optional Attribute" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <%= form.label :ringsstonedimensionl, "To" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required and changes to diameter when it's by iteself. Width and Depth are Important."></span>
+                          <%= form.text_field :ringsstonedimensionlend, class: "form-control", placeholder: "Optional Attribute" %>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.text_field :ringsstonedimensionwend, class: "form-control", placeholder: "Optional Attribute" %>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 form-group">
+                          <div class="no-label-field">
+                            <%= form.text_field :ringsstonedimensiondend, class: "form-control", placeholder: "Optional Attribute" %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.check_box :ringsstonedimensionest %>
+                        <%= form.label :ringsstonedimensionest, "Check if any dimensions estimated" %><br>
+                      </div>
+                      <div class="col-xs-12 form-group">
+                        <%= form.label :ringsstonegemnotes, "Gemologist Notes | Important" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is only used in situations where the gemologist wants to point out something specific about the stone."></span>
+                        <%= form.text_field :ringsstonegemnotes, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
 
                     </div>
@@ -1758,15 +1910,15 @@ function toggleRingweight() {
 
 
 $(document).ready(function () {
-    toggleStonetype();
+    toggleCStonetype();
     $("#item_ringcstonetype").change(function () {
-        toggleStonetype();
+        toggleCStonetype();
     });
 
 });
-function toggleStonetype() {
+function toggleCStonetype() {
 
-    if ($("#item_ringcstonetype").val() === "Diamond")
+    if ($("#item_ringcstonetype").val() == "Diamond")
         $("#cdiamond").show();
     else
         $("#cdiamond").hide();
@@ -1800,4 +1952,47 @@ function toggleRingdimension() {
 
 }
 
+
+$(document).ready(function () {
+    toggleSStonetype();
+    $("#item_ringsstonetype").change(function () {
+        toggleSStonetype();
+    });
+
+});
+function toggleSStonetype() {
+
+    if ($("#item_ringsstonetype").val() == "Diamond")
+        $("#sdiamond").show();
+    else
+        $("#sdiamond").hide();
+
+    if ($("#item_ringsstonetype").val() != "Diamond")
+        $("#sgem").show();
+    else
+        $("#sgem").hide();
+
+}
+
+
+$(document).ready(function () {
+    toggleRingdimensiontwo();
+    $("#item_ringsstonedimensiontype").change(function () {
+        toggleRingdimensiontwo();
+    });
+
+});
+function toggleRingdimensiontwo() {
+
+    if ($("#item_ringsstonedimensiontype").val() === "Range")
+        $("#ringsstonerange").show();
+    else
+        $("#ringsstonerange").hide();
+
+    if ($("#item_ringsstonedimensiontype").val() === "Single")
+        $("#ringsstonesingledim").show();
+    else
+        $("#ringsstonesingledim").hide();
+
+}
   </script>

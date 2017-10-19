@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018204533) do
+ActiveRecord::Schema.define(version: 20171019022500) do
 
   create_table "item_details", force: :cascade do |t|
     t.string "metal_type"
@@ -303,6 +303,12 @@ ActiveRecord::Schema.define(version: 20171018204533) do
     t.text "ringsstonedimensiondend"
     t.boolean "ringcstonedimensionest"
     t.boolean "ringsstonedimensionest"
+    t.text "ringcstonedimensionlsingle"
+    t.text "ringcstonedimensionwsingle"
+    t.text "ringcstonedimensiondsingle"
+    t.text "ringsstonedimensionlsingle"
+    t.text "ringsstonedimensionwsingle"
+    t.text "ringsstonedimensiondsingle"
     t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 

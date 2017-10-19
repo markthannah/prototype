@@ -261,7 +261,146 @@
       <% end %>
 
 <!---STONE 2--------------------------------------------------------------------------------------->
+<% unless @item.ringsstonetype.blank? %>
+<div class="row">
+  <div class="col-xs-12 new-heading">
+    <strong class="item-description" style="text-transform:uppercase;"><%=@item.ringsstoneposition%>
+      <% if (@item.ringsstonecountfinal > 1 && @item.ringsstonetype != 'Diamond')%>
+        STONES
+       <% elsif (@item.ringsstonecountfinal == 1 && @item.ringsstonetype != 'Diamond')%>
+        STONE
+      <% elsif (@item.ringsstonecountfinal > 1 && @item.ringsstonetype == 'Diamond')%>
+        DIAMONDS
+      <% elsif (@item.ringsstonecountfinal == 1 && @item.ringsstonetype == 'Diamond')%>
+        DIAMOND
+      <% end %>
+    </strong>
+  </div>
+  <div class="col-xs-12 item-details">
+    <strong class="item-description">Count:</strong>
+    <%= @item.ringsstonecountfinal.round %>
+  </div>
+  <% if @item.ringsstonetype != "Diamond" %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Type:</strong>
+      <%= @item.ringsstonetype.join(", ") %>
+    </div>
+  <% else %>
+  <% end %>
+  <% unless @item.ringsstonetreatment.blank? %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Treatment:</strong>
+      <%= @item.ringsstonetreatment %>
+    </div>
+  <% else %>
+  <% end %>
+  <div class="col-xs-12 item-details">
+    <strong class="item-description">Shape:</strong>
+    <%= @item.ringsstoneshape %>
+  </div>
+  <% if @item.ringsstonetype == "Diamond" %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Color Grade:</strong>
+      <%= @item.ringsstonecolorgrade %>
+      <% unless @item.ringsstonecolorgradeto.blank? %>
+          - <%= @item.ringsstonecolorgradeto %>
+        <% else %>
+        <% end %>
+    </div>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Clarity Grade:</strong>
+      <%= @item.ringsstoneclaritygrade %>
+      <% unless @item.ringsstoneclaritygradeto.blank? %>
+          - <%= @item.ringsstoneclaritygradeto %>
+        <% else %>
+        <% end %>
+    </div>
+    <% else %>
 
+    <% unless @item.ringsstonehue.blank? %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Hue:</strong>
+      <%= @item.ringsstonehue.partition('/').last %>
+    </div>
+    <% else %>
+    <% end %>
+    <% unless @item.ringsstonetone.blank? %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Tone:</strong>
+      <%= @item.ringsstonetone.partition('/').last %>
+    </div>
+    <% else %>
+    <% end %>
+    <% unless @item.ringsstonesaturation.blank? %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Saturation:</strong>
+      <%= @item.ringsstonesaturation.partition('/').last %>
+    </div>
+    <% else %>
+    <% end %>
+
+    <% end %>
+
+    <% if @item.ringsstonedimensiontype == "Single" %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Dimensions:</strong>
+      <%= number_with_precision(@item.ringsstonedimensionl, precision: 2) %> mm
+        <% unless @item.ringsstonedimensionw.blank? %>
+          x <%= number_with_precision(@item.ringsstonedimensionl, precision: 2)%> mm
+          <%end%>
+        <% unless @item.ringsstonedepth.blank? %>
+          x <%= number_with_precision(@item.ringsstonedimensionl, precision: 2)%> mm
+        <%end%>
+      </div>
+    <% elsif @item.ringsstonedimensiontype == "Range" %>
+    <div class="col-xs-12 item-details">
+      <strong class="item-description">Dimensions:</strong>
+      <%= number_with_precision(@item.ringsstonedimensionl, precision: 2) %> mm
+        <% unless @item.ringsstonedimensionw.blank? %>
+          x <%= number_with_precision(@item.ringsstonedimensionw, precision: 2)%> mm
+          <%end%>
+        <% unless @item.ringsstonedepth.blank? %>
+          x <%= number_with_precision(@item.ringsstonedepth, precision: 2)%> mm
+        <%end%>
+        to
+      <%= number_with_precision(@item.ringsstonedimensionlend, precision: 2) %> mm
+        <% unless @item.ringsstonedimensionwend.blank? %>
+          x <%= number_with_precision(@item.ringsstonedimensionwend, precision: 2)%> mm
+          <%end%>
+        <% unless @item.ringsstonedimensiondend.blank? %>
+          x <%= number_with_precision(@item.ringsstonedimensiondend, precision: 2)%> mm
+        <%end%>
+        <% unless @item.ringsstonedimensionest.blank? %>
+        - (estimate)
+        <% else %>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+
+
+    <% unless @item.ringsstonecaratweight.blank? %>
+      <div class="col-xs-12 item-details">
+        <strong class="item-description">Carat Weight:</strong>
+        <%= number_with_precision(@item.ringsstonecaratweight, precision: 2) %>
+        <% if @item.ringsstonecountfinal > 1 %>
+          ctw
+        <% else %>
+          ct
+        <% end %>
+      </div>
+      <% unless @item.ringsstonegemnotes.blank? %>
+        <div class="col-xs-12 item-details">
+          <strong class="item-description">Gemologist Note:</strong>
+          <%= @item.ringsstonegemnotes %>
+        </div>
+      <% else %>
+      <% end %>
+    <% else %>
+    <% end %>
+    </div>
+    <% else %>
+    <% end %>
 
 <!---STONE DISCLAIMERS----------------------------------------------------------------------------->
 
