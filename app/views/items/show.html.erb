@@ -86,11 +86,11 @@
       </div>
     <% else %>
     <% end %>
-    <% unless @item.ringhallmarks.blank? %>
+    <% unless @item.ringhallmarksz.blank? %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Hallmarks:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Required, and always display whether present or not. This should be an open text field. Selections are too varied, and even when we stand to learn from consistent marks (e.g., 14K), the data can still be captured in Metal Type."></span>
-      <%= @item.ringhallmarks %>
+      <%= @item.ringhallmarksz %>
     </div>
     <% else %>
     <% end %>
