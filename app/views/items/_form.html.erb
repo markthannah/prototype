@@ -1020,7 +1020,8 @@
                   <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We aren't looking to display this information to buyers, just use it internally to determine which data to capture."></span>
                     <%= form.select :ringquality, options_for_select([
                       ['Select One...', ''],
-                      ['Fine/Fashion','Fine/Fashion'],
+                      ['Fine','Fine'],
+                      ['Fashion','Fashion'],
                       ['Costume','Costume'],
                       ], @item.ringquality), {}, {:class => "form-control"} %>
                     </div>
@@ -1561,6 +1562,24 @@
 
                 </div>
 
+                <div id="fashionringdetails" class="jewelryattributes">
+                  <div class="row">
+                    <div class="col-xs-6 form-group col-xs-offset-3">
+                    <div class="form-group">
+                      <%= form.label :ringcountfashion, "Number of Items | Required" %>
+                    <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="If the lot size is 2 or less, display the fine rings template with details and stones. If 3 or more, display the costume lot details. "></span>
+                    <%= form.number_field :ringcountfashion,in: 1..15, class: "form-control", placeholder: "How many rings are in this lot?" %>
+                    </div>
+                  </div>
+                </div>
+                <div id="ringfashionlow">
+                  <p style="text-align:center;">Display the Fine Ring template.</p>
+                </div>
+                <div id="ringfashionhigh">
+                  <p style="text-align:center;">Display the Costume Ring template.</p>
+                </div>
+              </div>
+
 
                 <div id="costumeringdetails" class="jewelryattributes">
                   <div class="panel panel-default">
@@ -1579,7 +1598,7 @@
                       <div class="row">
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringcostumemetal, "Metal Type" %>
-                          <%= form.select :ringcostumemetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringothermetal), {}, {:class => "form-control"} %>
+                          <%= form.select :ringcostumemetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringcostumemetal), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringcostumecode, "GGID Code (For Disclaimer)" %>
@@ -1870,10 +1889,15 @@ $(document).ready(function () {
 
 function toggleFields() {
 
-  if ($("#item_ringquality").val() === "Fine/Fashion")
+  if ($("#item_ringquality").val() === "Fine")
       $("#fineringdetails").show();
   else
       $("#fineringdetails").hide();
+
+  if ($("#item_ringquality").val() === "Fashion")
+      $("#fashionringdetails").show();
+  else
+      $("#fashionringdetails").hide();
 
   if ($("#item_ringquality").val() === "Costume")
       $("#costumeringdetails").show();
@@ -2024,6 +2048,26 @@ function toggleRingnametwo() {
     else
         $("#ring2name").hide();
 
+}
+
+$(document).ready(function () {
+    toggleRingFashion();
+    $("#item_ringcountfashion").change(function () {
+        toggleRingFashion();
+    });
+
+});
+function toggleRingFashion() {
+
+    if ($("#item_ringcountfashion").val() > 2)
+        $("#ringfashionhigh").show();
+    else
+        $("#ringfashionhigh").hide();
+
+    if ($("#item_ringcountfashion").val() < 3)
+        $("#ringfashionlow").show();
+    else
+        $("#ringfashionlow").hide();
 }
 
 $(document).ready(function () {
