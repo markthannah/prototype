@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   before_validation do |item|
-  item.ringmetaltype.reject!(&:blank?) if item.ringmetaltype
+  item.ringmetaltypen.reject!(&:blank?) if item.ringmetaltypen
   item.ringothermetal.reject!(&:blank?) if item.ringothermetal
   item.ringcstonetype.reject!(&:blank?) if item.ringcstonetype
   item.ringsstonetype.reject!(&:blank?) if item.ringsstonetype
@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   end
 
 
-  serialize :ringmetaltype
+  serialize :ringmetaltypen
   serialize :ringothermetal
   serialize :ringcstonetype
   serialize :ringsstonetype

@@ -55,11 +55,11 @@
     </div>
     <% else %>
     <% end %>
-    <% unless @item.ringmetaltype.blank? %>
+    <% unless @item.ringmetaltypen.blank? %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Metal Type:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is Required, and will always display. This is a multiselect field, so they'll appear comma separated here."></span>
-      <%= @item.ringmetaltype.join(", ") %>
+      <%= @item.ringmetaltypen.join(", ") %>
     </div>
     <% else %>
     <% end %>
