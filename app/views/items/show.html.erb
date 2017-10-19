@@ -199,32 +199,36 @@
       <div class="col-xs-12 item-details">
         <strong class="item-description">Dimensions:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will always be Required and display if the ring includes a stone. If only a diameter is measured, just the first dimension will display. Alternatively, if a length and width are measured, two dimensions will appear. If a depth is measured, L x W x D will display. Measurements should always display up to the hundreths place."></span>
-        <%= number_with_precision(@item.ringcstonedimensionl, precision: 2) %> mm
-          <% unless @item.ringcstonedimensionw.blank? %>
-            x <%= number_with_precision(@item.ringcstonedimensionl, precision: 2)%> mm
+        <%= @item.ringcstonedimensionlsingle %> mm
+          <% unless @item.ringcstonedimensionwsingle.blank? %>
+            x <%= @item.ringcstonedimensionwsingle%> mm
             <%end%>
-          <% unless @item.ringcstonedepth.blank? %>
-            x <%= number_with_precision(@item.ringcstonedimensionl, precision: 2)%> mm
+          <% unless @item.ringcstonedimensiondsingle.blank? %>
+            x <%= @item.ringcstonedimensiondsingle%> mm
           <%end%>
+          <% unless @item.ringsstonedimensionest.blank? %>
+          - (estimate)
+          <% else %>
+          <% end %>
         </div>
       <% elsif @item.ringcstonedimensiontype == "Range" %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Dimensions:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will always be Required and display if the ring includes a stone. If only a diameter is measured, just the first dimension will display. Alternatively, if a length and width are measured, two dimensions will appear. If a depth is measured, L x W x D will display. Measurements should always display up to the hundreths place."></span>
-        <%= number_with_precision(@item.ringcstonedimensionl, precision: 2) %> mm
+        <%= @item.ringcstonedimensionl %> mm
           <% unless @item.ringcstonedimensionw.blank? %>
-            x <%= number_with_precision(@item.ringcstonedimensionw, precision: 2)%> mm
+            x <%= @item.ringcstonedimensionw%> mm
             <%end%>
           <% unless @item.ringcstonedepth.blank? %>
-            x <%= number_with_precision(@item.ringcstonedepth, precision: 2)%> mm
+            x <%= @item.ringcstonedepth%> mm
           <%end%>
           to
-        <%= number_with_precision(@item.ringcstonedimensionlend, precision: 2) %> mm
+        <%= @item.ringcstonedimensionlend %> mm
           <% unless @item.ringcstonedimensionwend.blank? %>
-            x <%= number_with_precision(@item.ringcstonedimensionwend, precision: 2)%> mm
+            x <%= @item.ringcstonedimensionwend%> mm
             <%end%>
           <% unless @item.ringcstonedimensiondend.blank? %>
-            x <%= number_with_precision(@item.ringcstonedimensiondend, precision: 2)%> mm
+            x <%= @item.ringcstonedimensiondend %> mm
           <%end%>
           <% unless @item.ringcstonedimensionest.blank? %>
           - (estimate)
@@ -344,31 +348,35 @@
     <% if @item.ringsstonedimensiontype == "Single" %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Dimensions:</strong>
-      <%= number_with_precision(@item.ringsstonedimensionl, precision: 2) %> mm
-        <% unless @item.ringsstonedimensionw.blank? %>
-          x <%= number_with_precision(@item.ringsstonedimensionl, precision: 2)%> mm
+      <%= @item.ringsstonedimensionlsingle %> mm
+        <% unless @item.ringsstonedimensionwsingle.blank? %>
+          x <%= @item.ringsstonedimensionwsingle%> mm
           <%end%>
-        <% unless @item.ringsstonedepth.blank? %>
-          x <%= number_with_precision(@item.ringsstonedimensionl, precision: 2)%> mm
+        <% unless @item.ringsstonedimensiondsingle.blank? %>
+          x <%= @item.ringsstonedimensiondsingle%> mm
         <%end%>
+        <% unless @item.ringsstonedimensionest.blank? %>
+        - (estimate)
+        <% else %>
+        <% end %>
       </div>
     <% elsif @item.ringsstonedimensiontype == "Range" %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Dimensions:</strong>
-      <%= number_with_precision(@item.ringsstonedimensionl, precision: 2) %> mm
+      <%= @item.ringsstonedimensionl %> mm
         <% unless @item.ringsstonedimensionw.blank? %>
-          x <%= number_with_precision(@item.ringsstonedimensionw, precision: 2)%> mm
+          x <%= @item.ringsstonedimensionw%> mm
           <%end%>
         <% unless @item.ringsstonedepth.blank? %>
-          x <%= number_with_precision(@item.ringsstonedepth, precision: 2)%> mm
+          x <%= @item.ringsstonedepth%> mm
         <%end%>
         to
-      <%= number_with_precision(@item.ringsstonedimensionlend, precision: 2) %> mm
+      <%= @item.ringsstonedimensionlend %> mm
         <% unless @item.ringsstonedimensionwend.blank? %>
-          x <%= number_with_precision(@item.ringsstonedimensionwend, precision: 2)%> mm
+          x <%= @item.ringsstonedimensionwend%> mm
           <%end%>
         <% unless @item.ringsstonedimensiondend.blank? %>
-          x <%= number_with_precision(@item.ringsstonedimensiondend, precision: 2)%> mm
+          x <%= @item.ringsstonedimensiondend%> mm
         <%end%>
         <% unless @item.ringsstonedimensionest.blank? %>
         - (estimate)
