@@ -106,12 +106,12 @@
     <div class="col-xs-12 item-details">
       <strong class="item-description">Total Weight:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Important, and display if present. If the weight is .ozt, storage and the view has to take the decimal out to the thousandths place, even if the final digit is a 0.</br>If the weight is .dwt, storage and the view has to take the decimal out to the hundreths place, even if the final digit is a 0."></span>
-      <% if @item.ringweighttype == 'ozt'%>
+      <% if @item.ringweighttypez == 'ozt'%>
         <%= number_with_precision(@item.ringtotalweighttype2, precision: 3) %>
-        <%= @item.ringweighttype %>
+        <%= @item.ringweighttypez %>
         <% else %>
-        <%= number_with_precision(@item.ringtotalweighttype, precision: 2) %>
-        <%= @item.ringweighttype %>
+        <%= number_with_precision(@item.ringtotalweighttypez, precision: 2) %>
+        <%= @item.ringweighttypez %>
       <% end %>
     </div>
     <% else %>

@@ -1126,9 +1126,9 @@
                         <%= form.text_field :ringhallmarksz, class: "form-control", placeholder: "Required Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :ringstyle, "Source | Important" %>
+                        <%= form.label :ringstylez, "Source | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll use this as a filter on the results page, but it should not be displayed on the item view page. We may also want to include this type of information in the form for catalogers, and as a tool tip in the filter, similar to the Age filter:<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Art Deco: Circa 1920-1930"></span>
-                        <%= form.select :ringstyle, options_for_select([["Select One...", ""],'Asian','Native American','Religious','Southwestern','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstyle), {}, {:class => "form-control"} %>
+                        <%= form.select :ringstylez, options_for_select([["Select One...", ""],'Asian','Native American','Religious','Southwestern','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstylez), {}, {:class => "form-control"} %>
                       </div>
                       <div class="form-group">
                         <%= form.label :ringengravedmarks, "Personalizations | Important" %>
@@ -1137,13 +1137,13 @@
                       </div>
                       <div class="row">
                         <div id="ringweighttype" class="col-xs-6 form-group">
-                          <%= form.label :ringweighttype, "Total Weight | Required" %>
+                          <%= form.label :ringweighttypez, "Total Weight | Required" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="The form automatically switches validation on the weight for two or three decimal places, based on whether ozt or dwt is selected. The cataloger should be forced to enter the full amount of decimal places (three for ozt, 2 for dwt) in order to prevent them from saving incorrect weights."></span>
-                          <%= form.select :ringweighttype, options_for_select([["Select One...", ""],['ozt','ozt'],['dwt','dwt']], :selected => @item.ringweighttype), {}, {:class => "form-control"} %>
+                          <%= form.select :ringweighttypez, options_for_select([["Select One...", ""],['ozt','ozt'],['dwt','dwt']], :selected => @item.ringweighttypez), {}, {:class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
                           <div id= "twodecimals" class="secondary-dropdown">
-                            <%= form.number_field :ringtotalweighttype,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Enter Total Weight" %>
+                            <%= form.number_field :ringtotalweighttypez,in: 1.0..10.0, step: 0.05, class: "form-control", placeholder: "Enter Total Weight" %>
                           </div>
                           <div id="threedecimals" class="secondary-dropdown">
                             <%= form.number_field :ringtotalweighttype2,in: 1.0..10.0, step: 0.005, class: "form-control", placeholder: "Enter Total Weight" %>
@@ -1901,19 +1901,19 @@ function toggleFields() {
 
 $(document).ready(function () {
     toggleRingweight();
-    $("#item_ringweighttype").change(function () {
+    $("#item_ringweighttypez").change(function () {
         toggleRingweight();
     });
 
 });
 function toggleRingweight() {
 
-    if ($("#item_ringweighttype").val() === "dwt")
+    if ($("#item_ringweighttypez").val() === "dwt")
         $("#twodecimals").show();
     else
         $("#twodecimals").hide();
 
-    if ($("#item_ringweighttype").val() === "ozt")
+    if ($("#item_ringweighttypez").val() === "ozt")
         $("#threedecimals").show();
     else
         $("#threedecimals").hide();
