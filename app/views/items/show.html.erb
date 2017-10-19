@@ -41,6 +41,12 @@
 
     <% if @item.category == "Rings" %>
 
+    <% unless @item.ringcount == 1 %>
+    <div class="col-xs-12">
+      <strong class="item-description" style="text-transform:uppercase;"><%= @item.ring1name %></strong>
+    </div>
+    <% else %>
+    <% end %>
     <% unless @item.ringdesigner.blank? %>
     <div class="col-xs-12">
       <strong class="item-description">Ring Designer:</strong>
@@ -409,12 +415,20 @@
     </div>
     <% else %>
     <% end %>
-
+    <% unless @item.ringcount == 1 %>
+    <div class="col-xs-6" style="padding-top:40px; padding-left:0px; padding-bottom:40px;">
+      <strong class="item-description" style="text-transform:uppercase;"><%= @item.ring2name %></strong>
+      <div>
+        If the cataloger decided to reuse the first set of Ring Details, they appear here again, along with any new stones added. If not, the new set of details, stones, etc. will apper. Ring three, etc. will appear below this ring.
+      </div>
+    </div>
+    <% else %>
+    <% end %>
 <!---STONE DISCLAIMERS----------------------------------------------------------------------------->
 
   <% unless @item.ringgeodisclaimer.blank? %>
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-7">
       <p class="item-description">
         <ul>
           <li>
