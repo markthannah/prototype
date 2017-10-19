@@ -70,11 +70,11 @@
         <%= @item.ringothermetal.join(", ") %>
       </div>
     <% end %>
-    <% unless @item.ringsize.blank? %>
+    <% unless @item.ringsizen.blank? %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Ring Size:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Ring size is Required and needs to be stored and displayed out to the hundreths place, even if the final digit is a zero."></span>
-        <%= number_with_precision(@item.ringsize, precision: 2) %>
+        <%= number_with_precision(@item.ringsizen, precision: 2) %>
       </div>
     <% else %>
     <% end %>
@@ -82,7 +82,7 @@
       <div class="col-xs-12 item-details">
         <strong class="item-description">Ring Width:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Ring width is used infrequently, but when it is, it should appear with decimals out to the hundredths place."></span>
-        <%= number_with_precision(@item.ringsize, precision: 2) %>
+        <%= number_with_precision(@item.ringsizen, precision: 2) %>
       </div>
     <% else %>
     <% end %>
