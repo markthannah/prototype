@@ -1039,9 +1039,9 @@
                         <%= form.text_field :ring1name, class: "form-control", placeholder: "Required Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :ringdesigner, "Designer | Important" %>
+                        <%= form.label :ringdesignern, "Designer | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll support a list of the most common designers. This will be displayed in the item view, and may eventually be used as a filter. Like Materials, there should be the added flexibility of being able to create a selection on the fly."></span>
-                        <%= form.select :ringdesigner, options_for_select([["Select One...", ""],'David Yurman','Harry Winston','Tiffany','Add more designers to the list'], @item.ringdesigner), {}, {:class => "form-control"} %>
+                        <%= form.select :ringdesignern, options_for_select([["Select One...", ""],'David Yurman','Harry Winston','Tiffany','Add more designers to the list'], @item.ringdesignern), {}, {:class => "form-control"} %>
                       </div>
                       <div class="row">
                         <div class="col-xs-6 form-group">
