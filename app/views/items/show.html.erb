@@ -63,11 +63,11 @@
     </div>
     <% else %>
     <% end %>
-    <% unless @item.ringothermetal.blank? %>
+    <% unless @item.ringothermetalagain.blank? %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Accent Metal Type:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Important and display? Not sure if this is a thing yet, but it's a multiselect, if so."></span>
-        <%= @item.ringothermetal.join(", ") %>
+        <%= @item.ringothermetalagain.join(", ") %>
       </div>
     <% end %>
     <% unless @item.ringsizen.blank? %>

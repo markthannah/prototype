@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019180539) do
+ActiveRecord::Schema.define(version: 20171019181236) do
 
   create_table "item_details", force: :cascade do |t|
     t.string "metal_type"
@@ -319,6 +319,7 @@ ActiveRecord::Schema.define(version: 20171019180539) do
     t.float "ringmetaltypen"
     t.float "ringmetaltypenew"
     t.text "ringmetaltypeagain"
+    t.text "ringothermetalagain"
     t.index ["item_details_id"], name: "index_items_on_item_details_id"
   end
 

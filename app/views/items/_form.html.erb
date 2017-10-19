@@ -1092,9 +1092,9 @@
                           @item.ringmetaltypeagain), {selected: @item },{:multiple => true, :class => "form-control"} %>
                         </div>
                         <div class="col-xs-6 form-group">
-                          <%= form.label :ringothermetal, "Accent Metal Type(s) | Important" %>
+                          <%= form.label :ringothermetalagain, "Accent Metal Type(s) | Important" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We aren't requiring this value, but it will be useful to display it separately on the item page for accents, prong metals, etc."></span>
-                          <%= form.select :ringothermetal, options_for_select([
+                          <%= form.select :ringothermetalagain, options_for_select([
                             '10K White Gold',
                             '14K White Gold',
                             '18K White Gold',
@@ -1117,7 +1117,7 @@
                             'Platinum',
                             'Platinum/Palladium',
                             'Other'],
-                            @item.ringothermetal), {selected: @item },{:multiple => true, :class => "form-control"} %>
+                            @item.ringothermetalagain), {selected: @item },{:multiple => true, :class => "form-control"} %>
                         </div>
                       </div>
                       <div class="form-group form-font">
