@@ -82,7 +82,7 @@
       <div class="col-xs-12 item-details">
         <strong class="item-description">Ring Width:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Ring width is used infrequently, but when it is used, it should appear with decimals out to the hundredths place."></span>
-        <%= number_with_precision(@item.ringwidth, precision: 2) %>
+        <%= number_with_precision(@item.ringwidth, precision: 2) %> mm
       </div>
     <% else %>
     <% end %>
@@ -491,35 +491,6 @@
   <% else %>
   <% end %>
 
-  <% unless @item.ringcostumegemdisclaimer.blank? %>
-  <div class="row">
-    <div class="col-xs-7">
-      <p class="item-description">
-        <ul>
-          <li>
-            All diamond and gemstone grading is done under GIA standards as the mounting permits, where gemstones are present. All weights and measurements are estimated and approximate. Industry standard and accepted treatments for gemstones are assumed unless otherwise noted.
-          </li>
-        </ul>
-      </p>
-    </div>
-  </div>
-  <% else %>
-  <% end %>
-
-  <% unless @item.ringcostumegeodisclaimer.blank? %>
-  <div class="row">
-    <div class="col-xs-12">
-      <p class="item-description">
-        <ul>
-          <li>
-            This item has been evaluated and verified by an independent Graduate Gemologist. (<%=@item.ringcode%>).
-        </li>
-      </ul>
-      </p>
-    </div>
-  </div>
-  <% else %>
-  <% end %>
 
   <% else %>
   <% end %>
