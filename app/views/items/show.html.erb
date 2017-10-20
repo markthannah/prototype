@@ -82,7 +82,7 @@
       <div class="col-xs-12 item-details">
         <strong class="item-description">Ring Width:</strong>
         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Ring width is used infrequently, but when it is used, it should appear with decimals out to the hundredths place."></span>
-        <%= number_with_precision(@item.ringsizen, precision: 2) %>
+        <%= number_with_precision(@item.ringwidth, precision: 2) %>
       </div>
     <% else %>
     <% end %>
@@ -124,23 +124,28 @@
   <div class="row">
     <div class="col-xs-12 new-heading">
       <strong class="item-description" style="text-transform:uppercase;"><%=@item.ringcstoneposition%>
-        <% if (@item.ringcstonecountfinal > 1 && @item.ringcstonetype != 'Diamond')%>
-          STONES
+        <% if (@item.ringcstonecountfinal == nil) %>
+          STONE
          <% elsif (@item.ringcstonecountfinal == 1 && @item.ringcstonetype != 'Diamond')%>
           STONE
         <% elsif (@item.ringcstonecountfinal > 1 && @item.ringcstonetype == 'Diamond')%>
           DIAMONDS
         <% elsif (@item.ringcstonecountfinal == 1 && @item.ringcstonetype == 'Diamond')%>
           DIAMOND
+        <% elsif (@item.ringcstonecountfinal > 1 && @item.ringcstonetype != 'Diamond')%>
+          STONES
         <% end %>
       </strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Notice how this label combines the stone's position and the word 'Stone', or 'Stones' if the count is greater than one. Also, notice how 'Diamond' or 'Diamonds' appears in this heading depending on the stone count and type. See below for how this also affects whether type is listed in the template."></span>
     </div>
+    <% unless @item.ringcstonecountfinal.blank? %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Count:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Count will always be Required and display on the Item View Page, keeping in mind that when this value is greater than 1, that all stones with this type and in this position (center, side, or accent) have the same qualities listed below. If any of these characteristics vary, the stone will be added in a separate template."></span>
       <%= @item.ringcstonecountfinal.round %>
     </div>
+    <% else %>
+    <% end %>
     <% if @item.ringcstonetype != "Diamond" %>
       <div class="col-xs-12 item-details">
         <strong class="item-description">Type:</strong>
@@ -160,7 +165,7 @@
     <div class="col-xs-12 item-details">
       <strong class="item-description">Shape:</strong>
       <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required and always display."></span>
-      <%= @item.ringcstoneshape %>
+      <%= @item.ringcstoneshape.join(", ") %>
     </div>
     <% if @item.ringcstonetype == "Diamond" %>
       <div class="col-xs-12 item-details">
@@ -221,7 +226,7 @@
           <% unless @item.ringcstonedimensiondsingle.blank? %>
             x <%= @item.ringcstonedimensiondsingle%> mm
           <%end%>
-          <% unless @item.ringsstonedimensionest.blank? %>
+          <% unless @item.ringcstonedimensionest.blank? %>
           - (estimate)
           <% else %>
           <% end %>
@@ -299,21 +304,26 @@
 <div class="row">
   <div class="col-xs-12 new-heading">
     <strong class="item-description" style="text-transform:uppercase;"><%=@item.ringsstoneposition%>
-      <% if (@item.ringsstonecountfinal > 1 && @item.ringsstonetype != 'Diamond')%>
-        STONES
+      <% if (@item.ringsstonecountfinal == nil) %>
+        STONE
        <% elsif (@item.ringsstonecountfinal == 1 && @item.ringsstonetype != 'Diamond')%>
         STONE
       <% elsif (@item.ringsstonecountfinal > 1 && @item.ringsstonetype == 'Diamond')%>
         DIAMONDS
       <% elsif (@item.ringsstonecountfinal == 1 && @item.ringsstonetype == 'Diamond')%>
         DIAMOND
+      <% elsif (@item.ringsstonecountfinal > 1 && @item.ringcstonetype != 'Diamond')%>
+        STONES
       <% end %>
     </strong>
   </div>
+  <% unless @item.ringsstonecountfinal.blank? %>
   <div class="col-xs-12 item-details">
     <strong class="item-description">Count:</strong>
     <%= @item.ringsstonecountfinal.round %>
   </div>
+  <% else %>
+  <% end %>
   <% if @item.ringsstonetype != "Diamond" %>
     <div class="col-xs-12 item-details">
       <strong class="item-description">Type:</strong>
@@ -330,7 +340,7 @@
   <% end %>
   <div class="col-xs-12 item-details">
     <strong class="item-description">Shape:</strong>
-    <%= @item.ringsstoneshape %>
+    <%= @item.ringsstoneshape.join(", ") %>
   </div>
   <% if @item.ringsstonetype == "Diamond" %>
     <div class="col-xs-12 item-details">

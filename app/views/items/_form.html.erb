@@ -1052,7 +1052,7 @@
                         <div class="col-xs-6 form-group">
                           <%= form.label :ringwidth, "Ring Width | Important" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is rarely set. It usually appears in cases where bands and rings have thicker shanks, and its ring size doesn't tell the entire story."></span>
-                          <%= form.number_field :ringwidth,in: 1.0..10.0, step: 0.25, class: "form-control", placeholder: "Enter a Ring Width" %>
+                          <%= form.number_field :ringwidth,in: 0.1..10.0, step: 0.01, class: "form-control", placeholder: "Enter a Ring Width" %>
                         </div>
                       </div>
                       <div class="row">
@@ -1192,17 +1192,30 @@
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringcstoneshape, "Stone Shape | Required" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This list is not exhaustive. It's only meant to include a subset of the total list."></span>
-                        <%= form.select :ringcstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.ringcstoneshape), {}, {:class => "form-control"} %>
+                        <%= form.select :ringcstoneshape, options_for_select([
+                          ["Select One...", ""],
+                          ['Asscher','Asscher'],
+                          ['Baguette','Baguette'],
+                          ['Cushion','Cushion'],
+                          ['Heart','Heart'],
+                          ['Marquise','Marquise'],
+                          ['Oval','Oval'],
+                          ['Pear','Pear'],
+                          ['Princess','Princess'],
+                          ['Radiant','Radiant'],
+                          ['Triangle','Triangle'],
+                          ['Trillion','Trillion']],
+                          @item.ringcstoneshape), {selected: @item },{:multiple => true, :class => "form-control"} %>
                       </div>
                       <div class="col-xs-12 form-group">
-                        <%= form.label :ringcstonetreatment, "Treatment | Required" %>
+                        <%= form.label :ringcstonetreatment, "Treatment | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll probably want to add more here since this is Required. This should also have an option to enter a value on the fly for display in the view, since it will be difficult to create a complete list."></span>
-                        <%= form.select :ringcstonetreatment, options_for_select([["Select One...", ""],'Dyed','Heat','Irradiated','Oiled','None','Other'], :selected => @item.ringcstonetreatment), {}, {:class => "form-control"} %>
+                        <%= form.select :ringcstonetreatment, options_for_select([["Select One...", ""],'Dyed','Heat','Irradiated','Oiled'], :selected => @item.ringcstonetreatment), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringcstonecountfinal, "Stone Count" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required. Only select 2+ stones if they all have the similar characteristics."></span>
-                        <%= form.number_field :ringcstonecountfinal,in: 1..10, step: 1, class: "form-control", placeholder: "Enter #" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This will be Required. Only select 2+ stones if they all have the similar characteristics. If this field equals 1, we should prevent the selection of more than one stone or cut."></span>
+                        <%= form.number_field :ringcstonecountfinal,in: 1..100, step: 1, class: "form-control", placeholder: "Enter #" %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringcstonecaratweight, "Carat Weight" %>
@@ -1386,15 +1399,28 @@
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringsstoneshape, "Stone Shape | Required" %>
-                        <%= form.select :ringsstoneshape, options_for_select([["Select One...", ""],'Asscher','Baguette','Cushion','Emerald','Heart','Marquise','Oval','Pear','Princess','Radiant','Triangle','Trillion' ], :selected => @item.ringsstoneshape), {}, {:class => "form-control"} %>
+                        <%= form.select :ringsstoneshape, options_for_select([
+                          ["Select One...", ""],
+                          ['Asscher','Asscher'],
+                          ['Baguette','Baguette'],
+                          ['Cushion','Cushion'],
+                          ['Heart','Heart'],
+                          ['Marquise','Marquise'],
+                          ['Oval','Oval'],
+                          ['Pear','Pear'],
+                          ['Princess','Princess'],
+                          ['Radiant','Radiant'],
+                          ['Triangle','Triangle'],
+                          ['Trillion','Trillion']],
+                          @item.ringsstoneshape), {selected: @item },{:multiple => true, :class => "form-control"} %>
                       </div>
                       <div class="col-xs-12 form-group">
-                        <%= form.label :ringsstonetreatment, "Treatment | Required" %>
-                        <%= form.select :ringsstonetreatment, options_for_select([["Select One...", ""],'Dyed','Heat','Irradiated','Oiled','None','Other'], :selected => @item.ringsstonetreatment), {}, {:class => "form-control"} %>
+                        <%= form.label :ringsstonetreatment, "Treatment | Important" %>
+                        <%= form.select :ringsstonetreatment, options_for_select([["Select One...", ""],'Dyed','Heat','Irradiated','Oiled'], :selected => @item.ringsstonetreatment), {}, {:class => "form-control"} %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringsstonecountfinal, "Stone Count" %>
-                        <%= form.number_field :ringsstonecountfinal,in: 1..10, step: 1, class: "form-control", placeholder: "Enter #" %>
+                        <%= form.number_field :ringsstonecountfinal,in: 1..100, step: 1, class: "form-control", placeholder: "Enter #" %>
                       </div>
                       <div class="col-xs-6 form-group">
                         <%= form.label :ringsstonecaratweight, "Carat Weight" %>

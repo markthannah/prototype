@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   item.ringothermetalagain.reject!(&:blank?) if item.ringothermetalagain
   item.ringcstonetype.reject!(&:blank?) if item.ringcstonetype
   item.ringsstonetype.reject!(&:blank?) if item.ringsstonetype
+  item.ringcstoneshape.reject!(&:blank?) if item.ringcstoneshape
+  item.ringsstoneshape.reject!(&:blank?) if item.ringsstoneshape
 
   end
 
@@ -13,6 +15,8 @@ class Item < ApplicationRecord
   serialize :ringothermetalagain
   serialize :ringcstonetype
   serialize :ringsstonetype
+  serialize :ringsstoneshape
+  serialize :ringcstoneshape
 
   has_many :item_detail
 
