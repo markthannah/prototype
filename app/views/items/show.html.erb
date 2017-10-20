@@ -284,20 +284,6 @@
       <% else %>
       <% end %>
 
-      <% unless @item.ringcostumemetal.blank? %>
-        <div class="col-xs-12 item-details">
-          <strong class="item-description"> Metal Type:</strong>
-          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Normally a basic metal."></span>
-          <%= @item.ringcostumemetal %>
-        </div>
-      <% end %>
-      <% unless @item.ringcostumecount.blank? %>
-        <div class="col-xs-12 item-details">
-          <strong class="item-description">Number of Rings:</strong>
-          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Number of rings in the lot."></span>
-          <%= @item.ringcostumecount %>
-        </div>
-      <% end %>
 
 <!---STONE 2--------------------------------------------------------------------------------------->
 <% unless @item.ringsstonetype.blank? %>
@@ -465,10 +451,14 @@
     <div class="col-xs-7">
       <p class="item-description">
         <ul>
-          <li>
-            All diamond and gemstone grading is done under GIA standards as the mounting permits, where gemstones are present. All weights and measurements are estimated and approximate. Industry standard and accepted treatments for gemstones are assumed unless otherwise noted.
-            <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="No change to the logic for these disclaimers."></span>
-          </li>
+        <li>
+          This item has been examined and verified by an independent Graduate Master Geologist (DCCPLS).
+        </li>
+      </br>
+        <li>
+          All weights and measurements are estimated and approximate. Industry standard and accepted treatments for gemstones are assumed unless otherwise noted.
+          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="No change to the logic for these disclaimers."></span>
+        </li>
         </ul>
       </p>
     </div>
@@ -483,7 +473,12 @@
         <ul>
           <li>
             This item has been evaluated and verified by an independent Graduate Gemologist. (<%=@item.ringcode%>).
-        </li>
+          </li>
+        </br>
+          <li>
+            All diamond and gemstone grading is done under GIA standards as the mounting permits, where gemstones are present. All weights and measurements are estimated and approximate. Industry standard and accepted treatments for gemstones are assumed unless otherwise noted.
+          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="No change to the logic for these disclaimers."></span>
+          </li>
       </ul>
       </p>
     </div>
@@ -496,6 +491,8 @@
   <% end %>
 
 </br></br></br></br></br></br></br></br></br></br></br></br>
+
+
 
 <script>
 $(document).ready(function(){
