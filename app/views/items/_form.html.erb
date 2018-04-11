@@ -1007,37 +1007,9 @@
                 </div>
 <!---RINGS--------------------------------------------------------------------------------------->
                 <div id="ringdetails">
-                  <div class="form-group">
-                    <%= form.label :ringquality, "Ring Type | Required" %>
-                  <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We aren't looking to display this information to buyers, just use it internally to determine which data to capture."></span>
-                    <%= form.select :ringquality, options_for_select([
-                      ['Select One...', ''],
-                      ['Fine','Fine'],
-                      ['Fashion','Fashion'],
-                      ['Costume','Costume'],
-                      ], @item.ringquality), {}, {:class => "form-control"} %>
-                    </div>
-                </div>
-
-                <div id="fineringdetails" class="jewelryattributes">
-                  <div class="row">
-                    <div class="col-xs-6 form-group col-xs-offset-3">
-                    <div class="form-group">
-                      <%= form.label :ringcount, "Number of Items | Required" %>
-                    <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="If the lot size is greater than 1 for Fine or Fashion, an item name is requested, which will display on the Item View Page. Is will also prompt the cataloger to enter information about the second, third, etc. ring."></span>
-                    <%= form.number_field :ringcount,in: 1..15, class: "form-control", placeholder: "How many rings are in this lot?" %>
-                    </div>
-                  </div>
-                </div>
-
                   <div class="panel panel-default">
                     <div class="panel-heading">Fine/Fashion Ring Details</div>
                     <div class="panel-body">
-                      <div id= "ring1name" class="form-group">
-                        <%= form.label :ring1name, "Ring 1 Name | Required" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="When there are more than 1 rings in the lot, a name needs to be created for the item to distinguish it from other rings in the photographs."></span>
-                        <%= form.text_field :ring1name, class: "form-control", placeholder: "Required Attribute" %>
-                      </div>
                       <div class="form-group">
                         <%= form.label :ringdesignern, "Designer | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll support a list of the most common designers. This will be displayed in the item view, and may eventually be used as a filter. Like Materials, there should be the added flexibility of being able to create a selection on the fly, particularly since this list can't be exhaustive."></span>
@@ -1057,14 +1029,7 @@
                       </div>
                       <div class="row">
                         <div class="col-xs-12 form-group">
-                          <%= form.label :ringages, "Age | Required" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="No change here from the way it's used today. We should continue to hide this on the Item View Page"></span>
-                          <%= form.select :ringages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringages), {}, {:class => "form-control"} %>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringmetaltypeagain , "Primary Metal Type(s) | Required" %>
+                          <%= form.label :ringmetaltypeagain , "Materials | Required" %>
                           <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is a mult-select meant to capture all metal types used as primariy materials for the ring. All will continue to be used in the materials filter, and display on the item page."></span>
                           <%= form.select :ringmetaltypeagain, options_for_select([
                             '10K White Gold',
@@ -1091,34 +1056,6 @@
                             'Other'],
                           @item.ringmetaltypeagain), {selected: @item },{:multiple => true, :class => "form-control"} %>
                         </div>
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringothermetalagain, "Accent Metal Type(s) | Important" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We aren't requiring this value, but it will be useful to display it separately on the item page for accents, prong metals, etc. At this point, it will not impact the Materials filter."></span>
-                          <%= form.select :ringothermetalagain, options_for_select([
-                            '10K White Gold',
-                            '14K White Gold',
-                            '18K White Gold',
-                            '24K White Gold',
-                            '10K Yellow Gold',
-                            '14K Yellow Gold',
-                            '18K Yellow Gold',
-                            '24K Yellow Gold',
-                            '10K Rose Gold',
-                            '14K Rose Gold',
-                            '18K Rose Gold',
-                            '24K Rose Gold',
-                            '.900 Gold',
-                            'Gold Plate',
-                            'Sterling Silver',
-                            '.900 Silver',
-                            '.999 Silver',
-                            'Silver Plate',
-                            'Palladium',
-                            'Platinum',
-                            'Platinum/Palladium',
-                            'Other'],
-                            @item.ringothermetalagain), {selected: @item },{:multiple => true, :class => "form-control"} %>
-                        </div>
                       </div>
                       <div class="form-group form-font">
                         <%= form.label :ringhallmarksz, "Hallmarks | Required" %>
@@ -1126,9 +1063,9 @@
                         <%= form.text_field :ringhallmarksz, class: "form-control", placeholder: "Required Attribute" %>
                       </div>
                       <div class="form-group">
-                        <%= form.label :ringstylez, "Source | Important" %>
+                        <%= form.label :ringstylez, "Style | Important" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="We'll use this as a filter on the results page, but it should not be displayed on the item view page. We may also want to include this type of information in the form for catalogers, and as a tool tip in the filter, similar to the Age filter:<br>Victorian: Circa 1837-1901<br>Art Nouveau: Circa 1890-1910<br>Edwardian: Circa 1901-1920<br>Art Deco: Circa 1920-1930"></span>
-                        <%= form.select :ringstylez, options_for_select([["Select One...", ""],'Asian','Native American','Religious','Southwestern','Victorian','Art Nouveau','Edwardian','Art Deco'], :selected => @item.ringstylez), {}, {:class => "form-control"} %>
+                        <%= form.select :ringstylez, options_for_select([["Select One...", ""],'Georgian (1714 - 1830)','Victorian (1837 - 1901)','Belle Epoque (1871 - 1914)','Art Nouveau (1880 - 1910)','Arts and Crafts (1880 - 1920)','Edwardian (1901 - 1920)','Antique (1918 and Before)','Vintage (1919 - 1993)', 'Art Deco (1920 - 1940)', 'Retro Period (1940 - 1960)', 'Modernist (1940 - 1970)'], :selected => @item.ringstylez), {}, {:class => "form-control"} %>
                       </div>
                       <div class="form-group">
                         <%= form.label :ringengravedmarks, "Personalizations | Important" %>
@@ -1138,31 +1075,12 @@
                       <div class="row">
                         <div id="ringweighttype" class="col-xs-6 form-group">
                           <%= form.label :ringweighttypez, "Total Weight | Required" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="The form automatically switches validation on the weight for two or three decimal places, based on whether ozt or dwt is selected. The cataloger should be forced to enter the full amount of decimal places (3 for ozt, 2 for dwt) in order to prevent them from saving incorrect weights."></span>
-                          <%= form.select :ringweighttypez, options_for_select([["Select One...", ""],['ozt','ozt'],['dwt','dwt']], :selected => @item.ringweighttypez), {}, {:class => "form-control"} %>
+                          <%= form.number_field :ringtotalweighttype2,in: 0.1..100.0, step: 0.001, class: "form-control", placeholder: "Enter Total Weight" %>
                         </div>
-                        <div class="col-xs-6 form-group">
-                          <div id= "twodecimals" class="secondary-dropdown">
-                            <%= form.number_field :ringtotalweighttypez,in: 0.1..100.0, step: 0.01, class: "form-control", placeholder: "Enter Total Weight" %>
-                          </div>
-                          <div id="threedecimals" class="secondary-dropdown">
-                            <%= form.number_field :ringtotalweighttype2,in: 0.1..100.0, step: 0.001, class: "form-control", placeholder: "Enter Total Weight" %>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xs-6 form-group" style="padding-left:0px;">
-                        <%= form.label :ringcode, "GGID Code (For Disclaimer)" %>
-                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="All Disclaimers will continue to be Important, not Required."></span>
-                        <%= form.select :ringcode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcode), {}, {:class => "form-control"} %>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-6 form-group">
-                          <%= form.check_box :ringgemdisclaimer %>
-                          <%= form.label :ringgemdisclaimer, "Use Gemology Disclaimer?" %><br>
-                        </div>
-                        <div class="col-xs-6 form-group">
-                          <%= form.check_box :ringgeodisclaimer %>
-                          <%= form.label :ringgeodisclaimer, "Use Geologist Disclaimer? (Cin DC Only)" %>
+                        <div class="col-xs-6 form-group" style="padding-left:0px;">
+                          <%= form.label :ringcode, "GGID Code (For Disclaimer)" %>
+                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="All Disclaimers will continue to be Important, not Required."></span>
+                          <%= form.select :ringcode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcode), {}, {:class => "form-control"} %>
                         </div>
                       </div>
                     </div>
@@ -1311,64 +1229,9 @@
                       </div>
 
                       <div class="col-xs-12 form-group">
-                        <%= form.label :ringcstonedimensiontype, "Dimension Type | Required" %>
+                        <%= form.label :ringcstonedimensionlsingle, "Dimensions | Required" %>
                         <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Dimension type will either be a range of two values, or L x W x H."></span>
-                        <%= form.select :ringcstonedimensiontype, options_for_select([["Select One...", ""],['Single','Single'],['Range','Range']], :selected => @item.ringcstonedimensiontype), {}, {:class => "form-control"} %>
-                      </div>
-
-                      <div id="ringcstonesingledim" class="">
-                        <div class="col-xs-4 form-group">
-                          <%= form.label :ringcstonedimensionlsingle, "Dimensions" %>
-                          <%= form.text_field :ringcstonedimensionlsingle, class: "form-control", placeholder: "Required Attribute" %>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="tooltip-only">
-                            <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required. Depth is Important"></span>
-                            <%= form.text_field :ringcstonedimensionwsingle, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringcstonedimensiondsingle, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div id= "ringcstonerange" class="">
-                        <div class="col-xs-4 form-group">
-                          <%= form.label :ringcstonedimensionl, "From" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required and changes to diameter when it's by iteself. Width and Depth are Important."></span>
-                          <%= form.text_field :ringcstonedimensionl, class: "form-control", placeholder: "Optional Attribute" %>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringcstonedimensionw, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringcstonedepth, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <%= form.label :ringcstonedimensionl, "To" %>
-                          <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Length is Required and changes to diameter when it's by iteself. Width and Depth are Important."></span>
-                          <%= form.text_field :ringcstonedimensionlend, class: "form-control", placeholder: "Optional Attribute" %>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringcstonedimensionwend, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringcstonedimensiondend, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xs-12 form-group">
-                        <%= form.check_box :ringcstonedimensionest %>
-                        <%= form.label :ringcstonedimensionest, "Check if any dimensions estimated" %><br>
+                        <%= form.text_field :ringcstonedimensionlsingle, class: "form-control" %>
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringcstonegemnotes, "Gemologist Notes | Important" %>
@@ -1508,68 +1371,15 @@
                             ], :selected => @item.ringsstonesaturation), {}, {:class => "form-control"} %>
                         </div>
                       </div>
-
                       <div class="col-xs-12 form-group">
-                        <%= form.label :ringsstonedimensiontype, "Dimension Type | Required" %>
-                        <%= form.select :ringsstonedimensiontype, options_for_select([["Select One...", ""],['Single','Single'],['Range','Range']], :selected => @item.ringsstonedimensiontype), {}, {:class => "form-control"} %>
-                      </div>
-
-                      <div id="ringsstonesingledim" class="">
-                        <div class="col-xs-4 form-group">
-                          <%= form.label :ringsstonedimensionlsingle, "Dimensions" %>
-                          <%= form.text_field :ringsstonedimensionlsingle, class: "form-control", placeholder: "Required Attribute" %>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringsstonedimensionwsingle, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringsstonedimensiondsingle, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div id= "ringsstonerange" class="">
-                        <div class="col-xs-4 form-group">
-                          <%= form.label :ringsstonedimensionl, "From" %>
-                          <%= form.text_field :ringsstonedimensionl, class: "form-control", placeholder: "Optional Attribute" %>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringsstonedimensionw, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringsstonedepth, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <%= form.label :ringsstonedimensionl, "To" %>
-                          <%= form.text_field :ringsstonedimensionlend, class: "form-control", placeholder: "Optional Attribute" %>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringsstonedimensionwend, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                        <div class="col-xs-4 form-group">
-                          <div class="no-label-field">
-                            <%= form.text_field :ringsstonedimensiondend, class: "form-control", placeholder: "Optional Attribute" %>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xs-12 form-group">
-                        <%= form.check_box :ringsstonedimensionest %>
-                        <%= form.label :ringsstonedimensionest, "Check if any dimensions estimated" %><br>
+                        <%= form.label :ringcstonedimensionlsingle, "Dimensions | Required" %>
+                        <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="Dimension type will either be a range of two values, or L x W x H."></span>
+                        <%= form.text_field :ringcstonedimensionlsingle, class: "form-control" %>
                       </div>
                       <div class="col-xs-12 form-group">
                         <%= form.label :ringsstonegemnotes, "Gemologist Notes | Important" %>
                         <%= form.text_field :ringsstonegemnotes, class: "form-control", placeholder: "Optional Attribute" %>
                       </div>
-
                     </div>
                    </div>
                  </div>
@@ -1577,65 +1387,8 @@
                    <button type="button" style="background:white; border-color:silver;" class="btn">Add Another Stone</button>
                    <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="This is only meant to repreesent that you could continue to add additional stones."></span>
                  </div>
-
                 </div>
 
-                <div id="fashionringdetails" class="jewelryattributes">
-                  <div class="row">
-                    <div class="col-xs-6 form-group col-xs-offset-3">
-                    <div class="form-group">
-                      <%= form.label :ringcountfashion, "Number of Items | Required" %>
-                    <span class="fa fa-info-circle" data-toggle="tooltip" data-html="true" title="If the lot size is 2 or less, display the fine rings template with details and stones. If 3 or more, display the costume lot details. "></span>
-                    <%= form.number_field :ringcountfashion,in: 1..15, class: "form-control", placeholder: "How many rings are in this lot?" %>
-                    </div>
-                  </div>
-                </div>
-                <div id="ringfashionlow">
-                  <p style="text-align:center;">Display the Fine Ring template.</p>
-                </div>
-                <div id="ringfashionhigh">
-                  <p style="text-align:center;">Display the Costume Ring template.</p>
-                </div>
-              </div>
-
-
-                <div id="costumeringdetails" class="jewelryattributes">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">Costume Ring Details</div>
-                    <div class="panel-body">
-                      <div class="row">
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringcostumecount, "Number of Items" %>
-                          <%= form.number_field :ringcostumecount,in: 1..50, step: 1, class: "form-control", placeholder: "Enter #" %>
-                        </div>
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringcostumeages, "Age" %>
-                          <%= form.select :ringcostumeages, options_for_select([["Select One...", ""],'Antique','Vintage','None' ], :selected => @item.ringages), {}, {:class => "form-control"} %>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringcostumemetal, "Metal Type" %>
-                          <%= form.select :ringcostumemetal, options_for_select([["Select One...", ""],'Metal','Other'], @item.ringcostumemetal), {}, {:class => "form-control"} %>
-                        </div>
-                        <div class="col-xs-6 form-group">
-                          <%= form.label :ringcostumecode, "GGID Code (For Disclaimer)" %>
-                          <%= form.select :ringcostumecode, options_for_select([["Select One...", ""],'ATLST','AUSGGS','BALKH','BALMM','BOSDS','CHAFH','CINCDU','CINCY','CINLW','CINNAH','CINSSM','CINTM','etc.'], @item.ringcostumecode), {}, {:class => "form-control"} %>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-6 form-group">
-                          <%= form.check_box :ringcostumegemdisclaimer %>
-                          <%= form.label :ringcostumegemdisclaimer, "Use Gemology Disclaimer?" %><br>
-                        </div>
-                        <div class="col-xs-6 form-group">
-                          <%= form.check_box :ringcostumegeodisclaimer %>
-                          <%= form.label :ringcostumegeodisclaimer, "Use Geologist Disclaimer? (Cin DC Only)" %>
-                        </div>
-                      </div>
-                     </div>
-                   </div>
-                 </div>
 
 <!---WATCHES--------------------------------------------------------------------------------------->
                 <div id="watchdetails">
@@ -1749,17 +1502,17 @@
                   <div class="form-group col-xs-12">
                     <p>Condition Status | Required</p>
                     <div>
-                      <button type="button" class="btn btn-default DC-button" disabled>Very Good</button>
-                      <button type="button" class="btn btn-default DC-button" disabled>Good</button>
-                      <button type="button" class="btn btn-default DC-button" disabled>Fair</button>
-                      <button type="button" class="btn btn-default DC-button" disabled>Poor</button>
-                      <button type="button" class="btn btn-default DC-button" disabled>Various</button>
-                      <button type="button" class="btn btn-default DC-button" disabled>Inoperable</button>
+                      <button type="button" class="btn btn-default DC-button" >Very Good</button>
+                      <button type="button" class="btn btn-default DC-button" >Good</button>
+                      <button type="button" class="btn btn-default DC-button" >Fair</button>
+                      <button type="button" class="btn btn-default DC-button" >Poor</button>
+                      <button type="button" class="btn btn-default DC-button" >Various</button>
+                      <button type="button" class="btn btn-default DC-button" >Inoperable</button>
                     </div>
                   </div>
                   <div class="form-group col-xs-12">
                     <p>Condition Details</p>
-                    <textarea class="form-control" placeholder="-good condition" readonly></textarea>
+                    <textarea class="form-control"></textarea>
                     <p class="subtext">Describe any flaws with the item, like scratches, worn areas, non-functioning components, etc.</p>
                   </div>
                 </div>
@@ -1771,26 +1524,26 @@
                 <div class="row">
                   <div class="form-group col-xs-4">
                     <p>Width (in.)<p>
-                    <input class="form-control" type="text" placeholder="12" readonly>
+                    <input class="form-control" type="text" >
                   </div>
                   <div class="form-group col-xs-4">
                     <p>Height (in.)</p>
-                    <input class="form-control" type="text" placeholder="12" readonly>
+                    <input class="form-control" type="text" >
                   </div>
                   <div class="form-group col-xs-4">
                     <p>Depth (in.)</p>
-                    <input class="form-control" type="text" placeholder="12" readonly>
+                    <input class="form-control" type="text" >
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-xs-12">
                     <p>Measurement Details</p>
-                    <textarea class="form-control" placeholder="-it's pretty big" readonly></textarea>
+                    <textarea class="form-control" ></textarea>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-xs-12">
-                    <button type="button" class="btn btn-default DC-button" disabled>DC Pickup?</button>
+                    <button type="button" class="btn btn-default DC-button" >DC Pickup?</button>
                     <p class="subtext">Describe any flaws with the item, like scratches, worn areas, non-functioning components, etc.</p>
                   </div>
                 </div>
@@ -1800,7 +1553,7 @@
               <h4>Description</h4>
               <div class="well">
                 <p>Description | Required</p>
-                <textarea class="form-control" placeholder="This piece of jewelry is..." readonly></textarea>
+                <textarea class="form-control" ></textarea>
               </div>
             </div>
             <div class="form-group col-xs-12">
@@ -1809,14 +1562,14 @@
                 <div class="row">
                   <div class="form-group col-xs-6">
                     <p>Link Title<p>
-                    <input class="form-control" type="text" placeholder= "EBTH" readonly>
+                    <input class="form-control" type="text" >
                   </div>
                   <div class="form-group col-xs-6">
                     <p>URL</p>
-                    <input class="form-control" type="text" placeholder="http://ebth.com" readonly>
+                    <input class="form-control" type="text" >
                   </div>
                 </div>
-                <button type="button" class="btn btn-default DC-button" disabled>+ Add Another Link</button>
+                <button type="button" class="btn btn-default DC-button" >+ Add Another Link</button>
               </div>
             </div>
             <div class="form-group">
@@ -1896,32 +1649,7 @@
 });
 
 
-$(document).ready(function () {
-    toggleFields();
-    $("#item_ringquality").change(function () {
-        toggleFields();
-    });
 
-});
-
-function toggleFields() {
-
-  if ($("#item_ringquality").val() === "Fine")
-      $("#fineringdetails").show();
-  else
-      $("#fineringdetails").hide();
-
-  if ($("#item_ringquality").val() === "Fashion")
-      $("#fashionringdetails").show();
-  else
-      $("#fashionringdetails").hide();
-
-  if ($("#item_ringquality").val() === "Costume")
-      $("#costumeringdetails").show();
-  else
-      $("#costumeringdetails").hide();
-
-}
 
 
 $(document).ready(function () {
