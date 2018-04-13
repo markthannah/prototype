@@ -1511,8 +1511,10 @@
                     </div>
                   </div>
                   <div class="form-group col-xs-12">
-                    <p>Condition Details</p>
-                    <textarea class="form-control"></textarea>
+                    <div class="form-group">
+                      <%= form.label :conditiondetails, "Condition Details" %><br>
+                      <%= form.text_area :conditiondetails, class: "form-control" %>
+                    </div>
                     <p class="subtext">Describe any flaws with the item, like scratches, worn areas, non-functioning components, etc.</p>
                   </div>
                 </div>
@@ -1523,28 +1525,26 @@
               <div class="well">
                 <div class="row">
                   <div class="form-group col-xs-4">
-                    <p>Width (in.)<p>
-                    <input class="form-control" type="text" >
+                    <div class="form-group">
+                      <%= form.label :length, "Length" %><br>
+                      <%= form.text_field :width, class: "form-control" %>
+                    </div>
                   </div>
                   <div class="form-group col-xs-4">
-                    <p>Height (in.)</p>
-                    <input class="form-control" type="text" >
+                    <%= form.label :width, "Width" %><br>
+                    <%= form.text_field :length, class: "form-control" %>
                   </div>
                   <div class="form-group col-xs-4">
-                    <p>Depth (in.)</p>
-                    <input class="form-control" type="text" >
+                    <%= form.label :height, "Height" %><br>
+                    <%= form.text_field :height, class: "form-control" %>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-xs-12">
-                    <p>Measurement Details</p>
-                    <textarea class="form-control" ></textarea>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-xs-12">
-                    <button type="button" class="btn btn-default DC-button" >DC Pickup?</button>
-                    <p class="subtext">Describe any flaws with the item, like scratches, worn areas, non-functioning components, etc.</p>
+                    <div class="form-group">
+                      <%= form.label :measurementdetails, "Measurement Details" %><br>
+                      <%= form.text_area :measurementdetails, class: "form-control", placeholder: "Enter measurement details here" %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1557,17 +1557,77 @@
                 <%= form.text_area :description, class: "form-control", placeholder: "Enter Description here" %>
               </div>
             </div>
-            <div class="form-group col-xs-12" style="padding-left: 0px; padding-right: 0px;">
+          </div>
+          <div class="form-group col-xs-12">
+            <h4>Disclaimer</h4>
+            <div class="well">
+              <div class="form-group">
+                <%= form.select :category, options_for_select([
+                  ['Select One...', ''],
+                  ['Abalone Shell','1'],
+                  ['Animal Fur/Residue','2'],
+                  ['Animal Products - California Law','3'],
+                  ['Authentication-Passed Autograph(s)','4'],
+                  ['Black Bear','5'],
+                  ['Black Powder/ Antique Firearms','6'],
+                  ['Boar Tusks & Elk Bugle Ivory','7'],
+                  ['Celebrity Memorabilia','8'],
+                  ['Coins and Currency','9'],
+                  ['Controversial Nature','10'],
+                  ['CORAL (Black, Branch, Stony, Apple, Fire, Lace also Queen Conch)','11'],
+                  ['Fossil Ivory','12'],
+                  ['Hazardous Materials','13'],
+                  ['Heavy & Large Items/ Assistance','14'],
+                  ['Helmets','15'],
+                  ['Inuit-Produced Walrus Ivory','16'],
+                  ['Jewelry - (DCCJVS) Jewelry Validation Specialist','17'],
+                  ['Jewelry - (DCCPLS) Graduate Master Geologist','18'],
+                  ['Jewelry - (DCCREN) DCC Gem Lab Processed','19'],
+                  ['Jewelry - Graduate Gemologist','20'],
+                  ['Jewelry - Unevaluated','21'],
+                  ['Mattresses','22'],
+                  ['Medical Specimens (Human)','23'],
+                  ['Neon Signs','24'],
+                  ['Non Gem DCCPLS','25'],
+                  ['Nunchakus','26'],
+                  ['Perfume/ Perfume Bottles','27'],
+                  ['Python Skin','28'],
+                  ['Radar Jammer','29'],
+                  ['Rosewood','30'],
+                  ['Rug Pad(s)','31'],
+                  ['Shipping-- No Ship','32'],
+                  ['Shipping-- No Ship/ No Transfer','33'],
+                  ['Shipping-- No Ship/ Yes Transfer','34'],
+                  ['Shipping-- No Transfer','35'],
+                  ['Slot Machine(s)','36'],
+                  ['Sports Memorabilia','37'],
+                  ['Stun Gun','38'],
+                  ['Switchblade','39'],
+                  ['Sword Cane/ Hidden Blade','40'],
+                  ['Tobacco Smoke','41'],
+                  ['Tortoise Shell','42'],
+                  ['Vehicle NOT Requiring Title (including 4-wheelers & mopeds)','43'],
+                  ['Vehicle Requiring Title (including cars & motorcycles)','44'],
+                  ['Watches - (CINCMEW) DCC/CIN Master Electronic Watchmaker','45'],
+                  ['Watches - (CMW21 or CW21) DCC/CIN Market Watchmaker','46'],
+                  ['Watches - Graduate Gemologist','47'],
+                  ['Watches - Graduate Gemologist and DCC/CIN Master Electronic Watchmaker','48'],
+                  ['Watches - Unevaluated','49']
+                  ], @item.category), {}, {:class => "form-control"} %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-xs-12">
               <h4>Additional Links</h4>
               <div class="well">
                 <div class="row">
                   <div class="form-group col-xs-6">
-                    <p>Link Title<p>
-                    <input class="form-control" type="text" >
+                    <%= form.label :linktitle, "Link Title" %><br>
+                    <%= form.text_field :linktitle, class: "form-control" %>
                   </div>
                   <div class="form-group col-xs-6">
-                    <p>URL</p>
-                    <input class="form-control" type="text" >
+                    <%= form.label :linkurl, "URL" %><br>
+                    <%= form.text_field :linkurl, class: "form-control" %>
                   </div>
                 </div>
                 <button type="button" class="btn btn-default DC-button" >+ Add Another Link</button>

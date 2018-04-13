@@ -34,19 +34,12 @@
       <strong class="item-description">ITEM DETAILS</strong>
     </div>
     <div class="col-xs-12" style="padding-top:15px; padding-bottom:15px;">
-      <p class="item-description"> The item's description would continue to display here.</p>
+      <p class="item-description"> <%= @item.description %></p>
     </div>
 
 <!---RINGS--------------------------------------------------------------------------------------->
 
     <% if @item.category == "Rings" %>
-
-    <% unless @item.ringcount == 1 %>
-    <div class="col-xs-12">
-      <strong class="item-description" style="text-transform:uppercase;"><%= @item.ring1name %></strong>
-    </div>
-    <% else %>
-    <% end %>
     <% unless @item.ringdesignern.blank? %>
     <div class="col-xs-12">
       <strong class="item-description">Ring Designer:</strong>
@@ -435,15 +428,7 @@
     </div>
     <% else %>
     <% end %>
-    <% if @item.ringcount.to_i > 1 %>
-    <div class="col-xs-6" style="padding-top:40px; padding-left:0px; padding-bottom:40px;">
-      <strong class="item-description" style="text-transform:uppercase;"><%= @item.ring2name %></strong>
-    <div>
-        If the cataloger decided to reuse the first set of Ring Details, they appear here again, along with any new stones, following the format used above. If they did not chose to resuse the item details from Ring 1, the new set of details, stones, etc. will apper. Ring three, etc. will display following the same pattern below this ring.
-      </div>
-    </div>
-    <% else %>
-    <% end %>
+
 <!---STONE DISCLAIMERS----------------------------------------------------------------------------->
 
 
@@ -491,7 +476,7 @@
   </div>
   <% else %>
   <% end %>
-  
+
 </br></br></br></br></br></br></br></br></br></br></br></br>
 
 
