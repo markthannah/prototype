@@ -1549,14 +1549,15 @@
                 </div>
               </div>
             </div>
-            <div class="form-group col-xs-12">
-              <h4>Description</h4>
-              <div class="well">
-                <p>Description | Required</p>
-                <textarea class="form-control" ></textarea>
+          <div class="form-group col-xs-12">
+            <h4>Description</h4>
+            <div class="well">
+              <div class="form-group">
+                <%= form.label :description, "Description" %><br>
+                <%= form.text_area :description, class: "form-control", placeholder: "Enter Description here" %>
               </div>
             </div>
-            <div class="form-group col-xs-12">
+            <div class="form-group col-xs-12" style="padding-left: 0px; padding-right: 0px;">
               <h4>Additional Links</h4>
               <div class="well">
                 <div class="row">
