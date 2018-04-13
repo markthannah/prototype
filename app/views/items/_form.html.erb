@@ -1562,7 +1562,7 @@
             <h4>Disclaimer</h4>
             <div class="well">
               <div class="form-group">
-                <%= form.select :category, options_for_select([
+                <%= form.select :disclaimer, options_for_select([
                   ['Select One...', ''],
                   ['Abalone Shell','1'],
                   ['Animal Fur/Residue','2'],
@@ -1613,7 +1613,7 @@
                   ['Watches - Graduate Gemologist','47'],
                   ['Watches - Graduate Gemologist and DCC/CIN Master Electronic Watchmaker','48'],
                   ['Watches - Unevaluated','49']
-                  ], @item.category), {}, {:class => "form-control"} %>
+                  ], @item.disclaimer), {}, {:class => "form-control"} %>
                 </div>
               </div>
             </div>
